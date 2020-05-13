@@ -1,0 +1,164 @@
+body {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    background-image: url(background.png);
+    width: 800px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+nav {
+    display: block;
+    text-align: center;
+    float: right;
+    margin-right: 170px;
+}
+
+footer {
+    background-color: black;
+    color: palevioletred;
+    text-align: left;
+    padding: 10px 10px 30px 10px;
+    border: 0px none none;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    margin-top: 80px;
+}
+
+#navLeiste {
+    position: fixed;
+    list-style: none;
+    background-color: black;
+    width: 260px;
+    padding-inline-start: 0px;
+    border: 1px solid black;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding: 4px;
+    margin-top: 0px;
+}
+
+.navListe {
+    display: inline;
+    padding: 3px;
+}
+
+.navA {
+    text-decoration: none;
+    color: beige;
+    padding-right: 2px;
+    padding-left: 2px;
+}
+.navListe:hover {
+    background-color: slategray;
+    transition: 0.15s;
+}
+
+#activeSite {
+    font-weight: 10;
+    color: palevioletred;
+}
+
+.siteHeader {
+    text-align: left;
+    color: beige;
+    font-size: 130px;
+    margin-top: 0px;
+    margin-bottom: 20px;
+    letter-spacing: -12px;
+}
+
+.kreisText {
+    height: 1px;
+    background-color: palevioletred;
+    width: 798px;
+    border: 1px solid palevioletred ;
+    border-bottom-right-radius: 399px;
+    border-bottom-left-radius: 399px;
+    padding-left: 30px;
+    padding-bottom: 400px;
+    margin-bottom: 80px;
+}
+
+.textHeader {
+    text-align: left;
+    color: black;
+    padding-left: 300px;
+    padding-right: 100px;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+#icons {
+    text-align: left;
+    padding-left: 300px;
+}
+
+.IconHover{
+    opacity: 0.5;
+}
+.IconHover:hover{
+    opacity: 1;
+    transition: 0.3s;
+}
+
+.h3style {
+    background-color: black;
+    color: beige;
+    text-align: left;
+    width: fit-content;
+    padding: 0px 100px 0px 40px;
+    font-size: 32px;
+    border: 0px;
+    border-radius: 15px;
+}
+
+.formInput {
+    background-color: grey;
+    color: black;
+    padding: 3px;
+    margin: 2px;
+    border: none;
+}
+
+#formular {
+    text-align: left;
+}
+
+::placeholder {
+    color: beige;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#nachricht {
+    background-color: grey;
+    color: black;
+    border: none;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 2px;
+    margin-bottom: 30px;
+    width: 250px;
+}
+
+.formButton {
+    background-color: grey;
+    color: beige;
+    padding: 5px;
+    border: none;
+}
+
+.formButton:hover {
+    background-color: palevioletred;
+    transition: 0.2s;
+}
+
+#überschrift {
+    font-size: 40px;
+    letter-spacing: 16px;
+    font-weight: 800;
+    background-color: black;
+    color: palevioletred;
+    border-radius: 15px;
+}
