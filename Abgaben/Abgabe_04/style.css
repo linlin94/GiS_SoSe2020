@@ -1,0 +1,169 @@
+body {
+    width: 800px;
+    margin-top: 0px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    background-image: linear-gradient(rgb(180, 124, 212), rgb(255, 196, 147))
+}
+.headerbanner {
+    height: 70px;
+    margin: 15px;
+    border: 5px solid transparent;
+    border-radius: 10px;
+}
+nav {
+    border: 0px solid transparent;
+    border-radius: 25px;
+}
+main {
+    margin-top: 10px;
+    border: 10px solid transparent;
+    border-radius: 25px;
+}
+footer {
+    background-color:rgb(180, 124, 212);
+    border: 0px solid transparent;
+    border-radius: 25px;
+    padding: 15px;
+    margin-top: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+footer ul li{
+    list-style: none;
+    text-align: left;
+    padding: 3px;
+}
+footer a{
+    text-decoration: none;
+    color: black;
+}
+footer a:hover {
+    color: white;
+    transition: 0.15s;
+}
+
+footer p {
+    text-align: center;
+}
+.navLeiste {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    padding-left: 30px;
+    background-color: white;
+    height: 44px;
+    border: 0px solid transparent;
+    border-radius: 20px;
+}
+.navListe {
+    float: left;
+}
+.navListe a{
+    display: block;
+    text-decoration: none;
+    color: black;
+    padding: 14px 16px;
+    text-align: center;
+}
+
+.navListe a:hover{
+    background-color: rgb(99, 36, 136);
+    color: white;
+    transition-property: background-color;
+    transition-duration: 0.15s;
+    border: 0px solid transparent;
+    border-radius: 20px;
+}
+.einkaufswagen {
+    width: 34px;
+    background-color:rgb(99, 36, 136);
+    text-align: center;
+    padding: 5px 18px 5px 18px;
+    float: right;
+    margin-right: 35px;
+    border: 0px solid transparent;
+    border-radius: 20px;
+}
+.einkaufswagen:hover {
+    background-color: rgb(255, 196, 147);
+    padding-left: 25px;
+    padding-right: 25px;
+    margin-right: 28px;
+    border: 0px solid transparent;
+    border-radius: 20px;
+    transition: margin, ease-in-out, 0.3s;
+    opacity: 100%;
+    
+}
+
+.kategorie {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    color: black;
+    letter-spacing: 5px;
+    padding: 10px;
+    margin-top: 3px;
+}
+main {
+    background-color: white;
+}
+
+.container {
+    display:flex;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+}
+[alt="artikelbild"] {
+    height: 120px;
+    margin: 0px;
+}
+.container div {
+    padding: 15px;
+    margin: 10px;
+    width: 18.3%;
+    box-shadow: 5px 5px 5px rgb(211, 211, 211);
+}
+
+.container div>h3 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    text-align: left;
+}
+
+.container div p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    text-align: left;
+}
+.container div p>strong{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    display: block;
+    text-align: right;
+    padding: 5px;
+}
+
+
+
+.inwarenkorb {
+    padding: 5px 10px 5px 10px;
+    background-color: rgb(99, 36, 136);
+    border: 0px solid transparent;
+    border-radius: 15px;
+    
+}
+.inwarenkorb a {
+    font-size: 13px;
+    color: white;
+    text-decoration: none;
+}
+.inwarenkorb:hover {
+    background-color: rgb(255, 196, 147);
+    transition: 0.15s;;
+}
+
