@@ -9,11 +9,12 @@ body {
 }
 
 .headerbild {
+    display: flex;
     background-image: url('banner2.svg');
     background-size: contain;
     background-repeat: no-repeat;
     height: 70px;
-    text-align: center;
+    justify-content: center;
     margin: 15px auto 20px 30%;
 }
 .account {
