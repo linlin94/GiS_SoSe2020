@@ -173,10 +173,7 @@ main {
     background-color: rgb(255, 196, 147);
     transition: 0.15s;;
 }
-.inwarenkorb:focus {
-    background-color: rgb(255, 196, 147);
-    transition: 0.15s;;
-}
+
 
 @media screen and (max-width:1024px) {
     body {
@@ -207,7 +204,7 @@ main {
         font-size: 20px;
     }
 
-    .inwarenkorb a {
+    .inwarenkorb {
         font-size: 15px;
     }
     footer {
@@ -257,9 +254,10 @@ main {
         font-size: 27px;
     }
 
-    .inwarenkorb a {
-        font-size: 24px;
+    .inwarenkorb {
+        font-size: 25px;
     }
+
     footer {
         font-size: 22px;
     }
