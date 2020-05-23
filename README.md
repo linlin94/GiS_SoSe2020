@@ -1,5 +1,7 @@
 # GiS_SoSe2020
-Grundlagen interaktiver System - SoSe2020 - OMB 2
+Grundlagen interaktiver Systeme - SoSe2020 - OMB 2
+
+Linda Koziol
 
 <a href="https://linlin94.github.io/GiS_SoSe2020/Abgaben/Aufgabe_01" target="_blank">1. Abgabe</a> - einfache HTML-Seite mit Steckbrief <br>
 
