@@ -125,7 +125,7 @@ main {
     background-color: white;
 }
 
-.container {
+#container1, #container2 {
     display:flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -135,26 +135,26 @@ main {
     height: 120px;
     margin: 0px;
 }
-.container div {
+#container1 div, #container2 div {
     padding: 15px;
     margin: 10px;
     width: 18.3%;
     box-shadow: 5px 5px 5px rgb(211, 211, 211);
 }
 
-.container div>h3 {
+#container1 div>h3, #container2 div>h3 {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 14px;
     text-align: left;
     overflow-wrap: break-word;
 }
 
-.container div p {
+#container1 div p, #container2 div p {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 12px;
     text-align: left;
 }
-.container div p>strong{
+#container1 div p>strong, #container2 div p>strong{
     font-family: Arial, Helvetica, sans-serif;
     font-size: 18px;
     display: block;
@@ -187,21 +187,21 @@ main {
     margin: 15px auto 20px 30%;
     }
 
-    .container div {
+    #container1 div, #container2 div {
         width: 24%;
     }
 
     [alt="artikelbild"] {
         height: 140px;
     }
-    .container div>h3 {
+    #container1 div>h3, #container2 div>h3 {
         font-size: 17px;
     }
     
-    .container div p {
+    #container1 div p, #container2 div p {
         font-size: 14px;
     }
-    .container div p>strong{
+    #container1 div p>strong, #container2 div p>strong{
         font-size: 20px;
     }
 
@@ -237,21 +237,21 @@ main {
     margin: 15px auto 20px 32%;
     }
 
-    .container div {
+    #container1 div, #container2 div {
         width: 100%;
     }
 
     [alt="artikelbild"] {
         height: 200px;
     }
-    .container div>h3 {
+    #container1 div>h3, #container2 div>h3 {
         font-size: 22px;
     }
     
-    .container div p {
+    #container1 div p, #container2 div p {
         font-size: 18px;
     }
-    .container div p>strong{
+    #container1 div p>strong, #container2 div p>strong{
         font-size: 27px;
     }
 
