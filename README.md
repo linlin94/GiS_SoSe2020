@@ -14,6 +14,8 @@ Linda Koziol
 
 <a href="https://linlin94.github.io/GiS_SoSe2020/Abgaben/Abgabe_05/index.html" target="_blank">5. Abgabe</a> - Selber Shop wie in Aufgabe 04, allerdings mit über TypeScript generierten Artikel<br>
 <br>
+<a href="https://linlin94.github.io/GiS_SoSe2020/Abgaben/Abgabe_06/index.html" target="_blank">6. Abgabe</a> - Vorheriger Shop mit neuen Funktionen: bei Click auf Kaufen-Button erscheint eine Zahl am Warenkorb. - der daraufhin errechnete Gesamtpreis wird in der Konsole ausgegeben. - Beim Klicken auf eine Kategorie werden alle nicht relevanten Artikel ausgeblendet. <br>
+
 Java aus dem 1.Semester - <a href="https://linlin94.github.io/Java-1.Semester/" target="_blank">Link</a><br>
 
 
