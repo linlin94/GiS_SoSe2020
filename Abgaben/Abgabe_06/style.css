@@ -1,0 +1,303 @@
+
+body {
+    width: 85%;
+    margin-top: 0px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    background-image: linear-gradient(rgb(180, 124, 212), rgb(255, 196, 147))
+}
+
+.headerbild {
+    display: flex;
+    background-image: url('banner2.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 70px;
+    justify-content: center;
+    margin: 15px auto 20px 30%;
+}
+.account {
+    height: 30px;
+    float: left;
+    margin-left: 10px;
+}
+nav {
+    border: 0px solid transparent;
+    border-radius: 25px;
+}
+
+/*#suchleiste {
+    float: none;
+    overflow: hidden;
+
+
+}*/
+
+main {
+    margin-top: 10px;
+    border: 10px solid transparent;
+    border-radius: 25px;
+}
+footer {
+    background-color:rgb(180, 124, 212);
+    border: 0px solid transparent;
+    border-radius: 25px;
+    padding: 15px;
+    margin-top: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+}
+
+footer ul li{
+    list-style: none;
+    text-align: left;
+    padding: 3px;
+}
+footer a{
+    text-decoration: none;
+    color: black;
+}
+footer a:hover {
+    color: white;
+    transition: 0.15s;
+}
+
+footer p+ul {
+    text-align: center;
+}
+#navLeiste {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    padding-left: 30px;
+    background-color: white;
+    height: 44px;
+    border: 0px solid transparent;
+    border-radius: 20px;
+}
+.navListe {
+    float: left;
+}
+.navListe a{
+    display: block;
+    text-decoration: none;
+    color: black;
+    padding: 14px 16px;
+    text-align: center;
+}
+
+.navListe a:hover{
+    background-color: rgb(99, 36, 136);
+    color: white;
+    transition-property: background-color;
+    transition-duration: 0.15s;
+    border: 0px solid transparent;
+    border-radius: 20px;
+}
+.einkaufswagen {
+    width: 34px;
+    background-color:rgb(99, 36, 136);
+    text-align: center;
+    padding: 5px 18px 5px 18px;
+    float: right;
+    margin-right: 35px;
+    border: 0px solid transparent;
+    border-radius: 20px;
+}
+.einkaufswagen:hover {
+    background-color: rgb(255, 196, 147);
+    padding-left: 25px;
+    padding-right: 25px;
+    margin-right: 28px;
+    border: 0px solid transparent;
+    border-radius: 20px;
+    transition: margin, ease-in-out, 0.3s;
+    opacity: 100%;
+    
+}
+
+.kategorie {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    color: black;
+    letter-spacing: 5px;
+    padding: 10px;
+    margin-top: 3px;
+}
+main {
+    background-color: white;
+}
+
+#container1, #container2 {
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+[alt="artikelbild"] {
+    height: 120px;
+    margin: 0px;
+}
+#container1 div, #container2 div {
+    padding: 15px;
+    margin: 10px;
+    width: 18.3%;
+    box-shadow: 5px 5px 5px rgb(211, 211, 211);
+}
+
+#container1 div>h3, #container2 div>h3 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    text-align: left;
+    overflow-wrap: break-word;
+}
+
+#container1 div p, #container2 div p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    text-align: left;
+}
+#container1 div p>strong, #container2 div p>strong{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    display: block;
+    text-align: right;
+    padding: 5px;
+}
+.inwarenkorb {
+    padding: 5px 10px 5px 10px;
+    background-color: rgb(99, 36, 136);
+    border: 0px solid transparent;
+    border-radius: 15px;
+    font-size: 13px;
+    color: white;
+    text-decoration: none;
+}
+.inwarenkorb:hover {
+    background-color: rgb(255, 196, 147);
+    transition: 0.15s;;
+}
+
+
+@media screen and (max-width:1024px) {
+    body {
+        width:95%;
+    }
+
+    .headerbild {
+    background-image: url('bannertablet.svg');
+    height: 60px;
+    margin: 15px auto 20px 30%;
+    }
+
+    #container1 div, #container2 div {
+        width: 24%;
+    }
+
+    [alt="artikelbild"] {
+        height: 140px;
+    }
+    #container1 div>h3, #container2 div>h3 {
+        font-size: 17px;
+    }
+    
+    #container1 div p, #container2 div p {
+        font-size: 14px;
+    }
+    #container1 div p>strong, #container2 div p>strong{
+        font-size: 20px;
+    }
+
+    .inwarenkorb {
+        font-size: 15px;
+    }
+    footer {
+        font-size: 16px;
+    }
+    .kategorie {
+        font-size: 23px;
+    }
+    #navLeiste {
+        font-size: 16px;
+        height: 46px;
+    }
+    .einkaufswagen {
+        width: 36px;
+    }
+
+}
+
+@media screen and (max-width:600px) {
+
+
+    body {
+        width:97%;
+    }
+
+    .headerbild {
+    background-image: url('bannersmartphone.svg');
+    height: 60px;
+    margin: 15px auto 20px 32%;
+    }
+
+    #container1 div, #container2 div {
+        width: 100%;
+    }
+
+    [alt="artikelbild"] {
+        height: 200px;
+    }
+    #container1 div>h3, #container2 div>h3 {
+        font-size: 22px;
+    }
+    
+    #container1 div p, #container2 div p {
+        font-size: 18px;
+    }
+    #container1 div p>strong, #container2 div p>strong{
+        font-size: 27px;
+    }
+
+    .inwarenkorb {
+        font-size: 25px;
+    }
+
+    footer {
+        font-size: 22px;
+    }
+    .kategorie {
+        font-size: 23px;
+    }
+    .navLeiste {
+        font-size: 20px;
+    }
+    .einkaufswagen {
+        width: 40px;
+        margin-right: 0px;
+    }
+    .einkaufswagen:hover {
+        margin: none;
+        background-color: rgb(255, 196, 147);
+        padding: 5px 18px 5px 18px;
+        margin-right: 0px;
+    }
+    #navLeiste {
+        height: 50px;
+    }
+
+    @media screen and (max-width:452px) {
+        #navLeiste {
+            font-size: 15px;
+            padding-left:0px;
+            height: 48px;
+        }
+        .einkaufswagen {
+            width: 38px;
+        }
+
+    }
+}
