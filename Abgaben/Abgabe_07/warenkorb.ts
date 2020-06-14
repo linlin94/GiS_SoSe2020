@@ -57,8 +57,8 @@ function generateWarenkorb(): void {
 
 //sollte den Gesamtpreis in ein HTML-Element packen und anzeigen lassen:
     let gesamtPreisWarenkorb: HTMLElement = document.createElement("h2");
-    gesamtPreisWarenkorb.setAttribute("style", "border-top: solid 1px grey; font-family: Arial, Helvetica, sans-serif; font-size: 20px; margin: 10px 50px 10px 50px;");
-    gesamtPreisWarenkorb.innerHTML = gesamtpreisFixed.toString() + "€";
+    gesamtPreisWarenkorb.setAttribute("style", "border-top: solid 1px grey; font-family: Arial, Helvetica, sans-serif; font-size: 20px; margin: 10px 50px 10px 50px; padding-top: 20px;");
+    gesamtPreisWarenkorb.innerHTML = localStorage.getItem("gesamtPreis") + " €";
     let sonstigesWarenkorbContainer: HTMLElement = document.getElementById("sonstigesWarenkorb")!;
     sonstigesWarenkorbContainer.appendChild(gesamtPreisWarenkorb);
 

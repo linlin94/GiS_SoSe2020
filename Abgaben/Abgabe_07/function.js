@@ -90,6 +90,7 @@ var Abgabe07;
         localStorage.setItem("gekaufteArtikel", JSON.stringify(Abgabe07.warenkorbArtikel));
         Abgabe07.gesamtpreisFixed = Abgabe07.gesamtpreisFixed + preisAktuellerArtikel;
         console.log(Abgabe07.gesamtpreisFixed);
+        localStorage.setItem("gesamtPreis", Abgabe07.gesamtpreisFixed.toString());
     }
     //Teilaufgabe 2:
     //gibt jeder Kategorie das Click-Event mit der Funktion showCategorie:

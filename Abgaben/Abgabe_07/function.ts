@@ -120,6 +120,7 @@ function buttonInWarenkorb(_event: Event): void {
     gesamtpreisFixed = gesamtpreisFixed + preisAktuellerArtikel;
     
     console.log(gesamtpreisFixed);
+    localStorage.setItem("gesamtPreis", gesamtpreisFixed.toString());
 }
 
 //Teilaufgabe 2:
