@@ -69,7 +69,7 @@ function generateWarenkorb(): void {
 
 generateDelete();
 
-//gibt allen generierten Buttons die erfoderliche Funktion:
+//gibt allen generierten Buttons die erfoderliche -Artikel-Entfernen-Funktion:
 function generateDelete(): void {
     //Selektiert alle HTML-Elemente der Klasse .warenkorb und steckt sie in eine NodeList:
     let buttonKlasse: NodeList = document.querySelectorAll(".inwarenkorb");
@@ -87,8 +87,8 @@ function removeArticle(_eventRemove: Event): void {
     let targetRemove: HTMLElement = (<HTMLElement>_eventRemove.target);
     let artIndexRemove: number = parseInt(targetRemove.getAttribute("artikelIndex")!);
     artikelWarenkorb = artikelWarenkorb.splice(artIndexRemove, 1);
+    localStorage.setItem("gekaufteArtikel", JSON.stringify(artikelWarenkorb));
 
-    
 }
 
 //alles-Löschen-Button:

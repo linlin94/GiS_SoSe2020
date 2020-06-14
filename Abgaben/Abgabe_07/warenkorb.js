@@ -51,7 +51,7 @@ var Abgabe07;
     }
     //gibt den Entfernen-Buttons den Eventlistener:
     generateDelete();
-    //gibt allen generierten Buttons die erfoderliche Funktion:
+    //gibt allen generierten Buttons die erfoderliche -Artikel-Entfernen-Funktion:
     function generateDelete() {
         //Selektiert alle HTML-Elemente der Klasse .warenkorb und steckt sie in eine NodeList:
         let buttonKlasse = document.querySelectorAll(".inwarenkorb");
@@ -65,6 +65,7 @@ var Abgabe07;
         let targetRemove = _eventRemove.target;
         let artIndexRemove = parseInt(targetRemove.getAttribute("artikelIndex"));
         artikelWarenkorb = artikelWarenkorb.splice(artIndexRemove, 1);
+        localStorage.setItem("gekaufteArtikel", JSON.stringify(artikelWarenkorb));
     }
     //alles-Löschen-Button:
     let deleteAllButton = document.getElementById("deleteAll");
