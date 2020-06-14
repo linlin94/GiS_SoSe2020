@@ -59,10 +59,9 @@ var Abgabe07;
     }
     Abgabe07.generateClick = generateClick;
     let inhaltWarenkorb = 0;
-    let gesamtpreis = 0;
+    Abgabe07.gesamtpreis = 0;
     //leerer Array für Artikel die später im Warenkorb landen:
     Abgabe07.warenkorbArtikel = [];
-    Abgabe07.gesamtpreisFixed = parseInt(gesamtpreis.toFixed(2));
     //Funktion des Buttons:
     function buttonInWarenkorb(_event) {
         if (inhaltWarenkorb == 0) {
@@ -88,9 +87,9 @@ var Abgabe07;
         //legt die gekauften Artikel in einen neuen Array ab:
         Abgabe07.warenkorbArtikel.push(Abgabe07.alleArtikel[artIndex]);
         localStorage.setItem("gekaufteArtikel", JSON.stringify(Abgabe07.warenkorbArtikel));
-        Abgabe07.gesamtpreisFixed = Abgabe07.gesamtpreisFixed + preisAktuellerArtikel;
-        console.log(Abgabe07.gesamtpreisFixed);
-        localStorage.setItem("gesamtPreis", Abgabe07.gesamtpreisFixed.toString());
+        Abgabe07.gesamtpreis = Abgabe07.gesamtpreis + preisAktuellerArtikel;
+        console.log(Abgabe07.gesamtpreis.toFixed(2));
+        localStorage.setItem("gesamtPreis", Abgabe07.gesamtpreis.toFixed(2).toString());
     }
     //Teilaufgabe 2:
     //gibt jeder Kategorie das Click-Event mit der Funktion showCategorie:

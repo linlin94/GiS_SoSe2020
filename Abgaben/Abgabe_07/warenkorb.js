@@ -45,7 +45,7 @@ var Abgabe07;
         //sollte den Gesamtpreis in ein HTML-Element packen und anzeigen lassen:
         let gesamtPreisWarenkorb = document.createElement("h2");
         gesamtPreisWarenkorb.setAttribute("style", "border-top: solid 1px grey; font-family: Arial, Helvetica, sans-serif; font-size: 20px; margin: 10px 50px 10px 50px; padding-top: 20px;");
-        gesamtPreisWarenkorb.innerHTML = localStorage.getItem("gesamtPreis") + " €";
+        gesamtPreisWarenkorb.innerHTML = "Gesamtpreis: " + localStorage.getItem("gesamtPreis") + " €";
         let sonstigesWarenkorbContainer = document.getElementById("sonstigesWarenkorb");
         sonstigesWarenkorbContainer.appendChild(gesamtPreisWarenkorb);
     }
@@ -64,7 +64,7 @@ var Abgabe07;
     function removeArticle(_eventRemove) {
         let targetRemove = _eventRemove.target;
         let artIndexRemove = parseInt(targetRemove.getAttribute("artikelIndex"));
-        artikelWarenkorb.splice(artIndexRemove, 1);
+        artikelWarenkorb = artikelWarenkorb.splice(artIndexRemove, 1);
     }
     //alles-Löschen-Button:
     let deleteAllButton = document.getElementById("deleteAll");

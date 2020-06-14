@@ -58,7 +58,7 @@ function generateWarenkorb(): void {
 //sollte den Gesamtpreis in ein HTML-Element packen und anzeigen lassen:
     let gesamtPreisWarenkorb: HTMLElement = document.createElement("h2");
     gesamtPreisWarenkorb.setAttribute("style", "border-top: solid 1px grey; font-family: Arial, Helvetica, sans-serif; font-size: 20px; margin: 10px 50px 10px 50px; padding-top: 20px;");
-    gesamtPreisWarenkorb.innerHTML = localStorage.getItem("gesamtPreis") + " €";
+    gesamtPreisWarenkorb.innerHTML = "Gesamtpreis: " + localStorage.getItem("gesamtPreis") + " €";
     let sonstigesWarenkorbContainer: HTMLElement = document.getElementById("sonstigesWarenkorb")!;
     sonstigesWarenkorbContainer.appendChild(gesamtPreisWarenkorb);
 
@@ -86,7 +86,8 @@ function removeArticle(_eventRemove: Event): void {
 
     let targetRemove: HTMLElement = (<HTMLElement>_eventRemove.target);
     let artIndexRemove: number = parseInt(targetRemove.getAttribute("artikelIndex")!);
-    artikelWarenkorb.splice(artIndexRemove, 1);
+    artikelWarenkorb = artikelWarenkorb.splice(artIndexRemove, 1);
+
     
 }
 

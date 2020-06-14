@@ -73,11 +73,10 @@ buttonKlasse[i].addEventListener("click", buttonInWarenkorb);
 }
 
 let inhaltWarenkorb: number = 0;
-let gesamtpreis: number = 0;
+export let gesamtpreis: number = 0;
 
 //leerer Array für Artikel die später im Warenkorb landen:
 export let warenkorbArtikel: Artikel [] = [];
-export let gesamtpreisFixed: number = parseInt(gesamtpreis.toFixed(2));
 
 //Funktion des Buttons:
 function buttonInWarenkorb(_event: Event): void {
@@ -117,10 +116,10 @@ function buttonInWarenkorb(_event: Event): void {
     localStorage.setItem("gekaufteArtikel", JSON.stringify(warenkorbArtikel));
     
 
-    gesamtpreisFixed = gesamtpreisFixed + preisAktuellerArtikel;
+    gesamtpreis = gesamtpreis + preisAktuellerArtikel;
     
-    console.log(gesamtpreisFixed);
-    localStorage.setItem("gesamtPreis", gesamtpreisFixed.toString());
+    console.log(gesamtpreis.toFixed(2));
+    localStorage.setItem("gesamtPreis", gesamtpreis.toFixed(2).toString());
 }
 
 //Teilaufgabe 2:
