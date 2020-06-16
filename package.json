@@ -1,0 +1,21 @@
+{
+  "name": "ultimategis2020",
+  "version": "1.0.0",
+  "description": "Grundlagen interaktiver Systeme - SoSe2020 - OMB 2",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "start": "node Abgaben/Abgabe_08/start.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/linlin94/GiS_SoSe2020.git"
+  },
+  "author": "lindakoziol",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/linlin94/GiS_SoSe2020/issues"
+  },
+  "homepage": "https://github.com/linlin94/GiS_SoSe2020#readme"
+}
