@@ -42,13 +42,17 @@ var Abgabe07;
             produktButtonWarenkorb.innerHTML = "Artikel entfernen";
             artikelImWarenkorb.appendChild(artikelcontainerWarenkorb);
         }
+    }
+    function showPrice() {
         //sollte den Gesamtpreis in ein HTML-Element packen und anzeigen lassen:
         let gesamtPreisWarenkorb = document.createElement("h2");
+        gesamtPreisWarenkorb.setAttribute("id", "gesamtpreiswarenkorb");
         gesamtPreisWarenkorb.setAttribute("style", "border-top: solid 1px grey; font-family: Arial, Helvetica, sans-serif; font-size: 20px; margin: 10px 50px 10px 50px; padding-top: 20px;");
         gesamtPreisWarenkorb.innerHTML = "Gesamtpreis: " + localStorage.getItem("gesamtPreis") + " €";
         let sonstigesWarenkorbContainer = document.getElementById("sonstigesWarenkorb");
         sonstigesWarenkorbContainer.appendChild(gesamtPreisWarenkorb);
     }
+    showPrice();
     //gibt den Entfernen-Buttons den Eventlistener:
     generateDelete();
     //gibt allen generierten Buttons die erfoderliche -Artikel-Entfernen-Funktion:
@@ -60,12 +64,28 @@ var Abgabe07;
             buttonKlasse[i].addEventListener("click", removeArticle);
         }
     }
-    //sollte Artikel aus Array löschen:
+    //sollte einen Artikel aus Array löschen:
     function removeArticle(_eventRemove) {
         let targetRemove = _eventRemove.target;
         let artIndexRemove = parseInt(targetRemove.getAttribute("artikelIndex"));
-        artikelWarenkorb = artikelWarenkorb.splice(artIndexRemove, 1);
+        //zieht den Preis des entfernten Artikels vom Gesamtpreis ab und speichert den neuen Wert im LocalStorage wo der alte Wert war:
+        artikelWarenkorb.splice(artIndexRemove, 1);
         localStorage.setItem("gekaufteArtikel", JSON.stringify(artikelWarenkorb));
+        //berechnet neuen Gesamtpreis mit dem Array:
+        let localGesamtpreis = 0;
+        if (artikelWarenkorb.length > 0) {
+            for (let i = 0; i < artikelWarenkorb.length; i++) {
+                localGesamtpreis = localGesamtpreis + artikelWarenkorb[i].preis;
+                Abgabe07.gesamtpreis = localGesamtpreis;
+            }
+        }
+        else {
+            deleteAllArticles();
+        }
+        localStorage.setItem("gesamtPreis", Abgabe07.gesamtpreis.toString());
+        let oldPrice = document.getElementById("gesamtpreiswarenkorb");
+        document.removeChild(oldPrice);
+        showPrice();
     }
     //alles-Löschen-Button:
     let deleteAllButton = document.getElementById("deleteAll");

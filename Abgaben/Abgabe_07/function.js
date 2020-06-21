@@ -83,11 +83,12 @@ var Abgabe07;
         //nimmt den Preis des Artikels des geklickten Buttons:
         let target = _event.target;
         let artIndex = parseInt(target.getAttribute("artikelIndex"));
-        let preisAktuellerArtikel = Abgabe07.alleArtikel[artIndex].preis;
         //legt die gekauften Artikel in einen neuen Array ab:
         Abgabe07.warenkorbArtikel.push(Abgabe07.alleArtikel[artIndex]);
         localStorage.setItem("gekaufteArtikel", JSON.stringify(Abgabe07.warenkorbArtikel));
-        Abgabe07.gesamtpreis = Abgabe07.gesamtpreis + preisAktuellerArtikel;
+        for (let i = 0; i < Abgabe07.warenkorbArtikel.length; i++) {
+            Abgabe07.gesamtpreis = Abgabe07.gesamtpreis + Abgabe07.warenkorbArtikel[i].preis;
+        }
         console.log(Abgabe07.gesamtpreis.toFixed(2));
         localStorage.setItem("gesamtPreis", Abgabe07.gesamtpreis.toFixed(2).toString());
     }

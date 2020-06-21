@@ -108,16 +108,16 @@ function buttonInWarenkorb(_event: Event): void {
     //nimmt den Preis des Artikels des geklickten Buttons:
     let target: HTMLElement = (<HTMLElement>_event.target);
     let artIndex: number = parseInt(target.getAttribute("artikelIndex")!);
-    let preisAktuellerArtikel: number = alleArtikel[artIndex].preis;
 
 
     //legt die gekauften Artikel in einen neuen Array ab:
     warenkorbArtikel.push(alleArtikel[artIndex]);
     localStorage.setItem("gekaufteArtikel", JSON.stringify(warenkorbArtikel));
     
+    for (let i: number = 0; i < warenkorbArtikel.length; i++) {
+        gesamtpreis = gesamtpreis + warenkorbArtikel[i].preis;
+    }
 
-    gesamtpreis = gesamtpreis + preisAktuellerArtikel;
-    
     console.log(gesamtpreis.toFixed(2));
     localStorage.setItem("gesamtPreis", gesamtpreis.toFixed(2).toString());
 }
