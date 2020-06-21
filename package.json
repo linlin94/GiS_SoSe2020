@@ -6,7 +6,7 @@
   "dependencies": {},
   "devDependencies": {},
   "scripts": {
-    "start": "node Abgaben/Abgabe_08/start.js"
+    "start": "node Abgaben/Abgabe_08/server.js"
   },
   "repository": {
     "type": "git",
