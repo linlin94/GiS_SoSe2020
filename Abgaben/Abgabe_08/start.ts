@@ -23,7 +23,7 @@ namespace Abgabe08 {
     //Antwort des Servers (zusammengesetztes url+query):
     let response: Response = await fetch(url);
 
-    console.log(response);
+    console.log("Antwort des Servers:" + response.toString());
 
   }
 
