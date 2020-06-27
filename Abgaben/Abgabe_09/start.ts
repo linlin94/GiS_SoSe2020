@@ -21,10 +21,8 @@ namespace Abgabe08 {
     let responseText: string = await response.text();
 
     //generiert HTML auf der form.html Seite:
-    let text: HTMLElement = document.createElement("p");
     let pResponse: HTMLElement = document.getElementById("pResponse")!;
-    pResponse.appendChild(text);
-    text.innerHTML = responseText;
+    pResponse.innerHTML = responseText;
 
   }
 

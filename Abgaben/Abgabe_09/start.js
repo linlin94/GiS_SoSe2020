@@ -16,10 +16,8 @@ var Abgabe08;
         let response = await fetch(url);
         let responseText = await response.text();
         //generiert HTML auf der form.html Seite:
-        let text = document.createElement("p");
         let pResponse = document.getElementById("pResponse");
-        pResponse.appendChild(text);
-        text.innerHTML = responseText;
+        pResponse.innerHTML = responseText;
     }
     async function handleClickJSON() {
         //generiert FormData Objekt aus <form> im Dokument:
