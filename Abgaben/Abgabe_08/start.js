@@ -16,7 +16,7 @@ var Abgabe08;
         console.log("url: " + url);
         //Antwort des Servers (zusammengesetztes url+query):
         let response = await fetch(url);
-        console.log(response);
+        console.log("Antwort des Servers:" + response.toString());
     }
 })(Abgabe08 || (Abgabe08 = {}));
 //# sourceMappingURL=start.js.map
