@@ -2,7 +2,7 @@
 import * as Http from "http";
 import * as Url from "url";
 
-export namespace A08Server {
+export namespace A09Server {
 
     console.log("Starting server");
 
@@ -48,14 +48,14 @@ export namespace A08Server {
 
             //wenn /json (in url) empfangen wird, wird url.query in String umgewandelt, in Konsole ausgegeben und der Antwort mitgegeben:
             if (pathname == "/json") {
-                let jsonString: string = JSON.stringify(url.query);
-                console.log(jsonString);
-                _response.write(jsonString);
-        
-              }
+                let stringJSON: string = JSON.stringify(url.query);
+                _response.write(stringJSON);
+                console.log(stringJSON);
+                
+            }
 
             //wenn /html (in url) empfangen wird, werden Schüssel-Werte-Paare in Antwort geschrieben und in Konsole ausgegeben
-              else if (pathname == "/html") {
+            else if (pathname == "/html") {
                 for (let key in url.query) {
                     _response.write(key + ":" + url.query[key] + "<br>");
                     console.log(_response);

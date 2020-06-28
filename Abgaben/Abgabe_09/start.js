@@ -1,6 +1,6 @@
 "use strict";
-var Abgabe08;
-(function (Abgabe08) {
+var Abgabe09;
+(function (Abgabe09) {
     //gibt den jeweiligen Buttons den passenden EventListener (html, json) bei Click:
     let buttonClickHTML = document.getElementById("htmlbutton");
     buttonClickHTML.addEventListener("click", handleClickHTML);
@@ -10,28 +10,28 @@ var Abgabe08;
     async function handleClickHTML() {
         //generiert FormData Objekt aus <form> im Dokument:
         let formData = new FormData(document.forms[0]);
-        let url = "https://ultimategis2020.herokuapp.com/";
+        let url = "https://ultimategis2020.herokuapp.com";
         url = url + "/html";
-        let query = new URLSearchParams(formData.toString());
-        url = url + "?" + query.toString();
+        let query = new URLSearchParams(formData);
+        url = url + "?" + query;
+        console.log(url);
         let response = await fetch(url);
-        let responseText = await response.text();
+        let responseTEXT = await response.text();
         //füllt HTML auf der form.html Seite:
-        pResponse.innerHTML = responseText;
+        pResponse.innerHTML = responseTEXT;
     }
     async function handleClickJSON() {
         //generiert FormData Objekt aus <form> im Dokument:
         let formData = new FormData(document.forms[0]);
-        let url = "https://ultimategis2020.herokuapp.com/";
+        let url = "https://ultimategis2020.herokuapp.com";
         url = url + "/json";
         let query = new URLSearchParams(formData.toString());
         url = url + "?" + query.toString();
         let response = await fetch(url);
-        let responseText = await response.text();
-        let responseJSON = JSON.parse(responseText);
+        let responseTEXT = response.toString();
+        let responseJSON = JSON.parse(responseTEXT);
         console.log(responseJSON);
-        console.log(responseText);
-        pResponse.innerHTML = responseText;
+        pResponse.innerHTML = responseTEXT;
     }
-})(Abgabe08 || (Abgabe08 = {}));
+})(Abgabe09 || (Abgabe09 = {}));
 //# sourceMappingURL=start.js.map

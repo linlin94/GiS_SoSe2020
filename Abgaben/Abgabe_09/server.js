@@ -1,11 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.A08Server = void 0;
+exports.A09Server = void 0;
 //wird benötigt um Server zu bauen; * -sämtliche Funktionalität wird importiert
 const Http = require("http");
 const Url = require("url");
-var A08Server;
-(function (A08Server) {
+var A09Server;
+(function (A09Server) {
     console.log("Starting server");
     //process enviroment port = legt den port des Server für let port fest:
     let port = Number(process.env.PORT);
@@ -39,9 +39,9 @@ var A08Server;
             let pathname = url.pathname;
             //wenn /json (in url) empfangen wird, wird url.query in String umgewandelt, in Konsole ausgegeben und der Antwort mitgegeben:
             if (pathname == "/json") {
-                let jsonString = JSON.stringify(url.query);
-                console.log(jsonString);
-                _response.write(jsonString);
+                let stringJSON = JSON.stringify(url.query);
+                _response.write(stringJSON);
+                console.log(stringJSON);
             }
             //wenn /html (in url) empfangen wird, werden Schüssel-Werte-Paare in Antwort geschrieben und in Konsole ausgegeben
             else if (pathname == "/html") {
@@ -54,5 +54,5 @@ var A08Server;
         //Ende & Verschicken der Antwort:
         _response.end();
     }
-})(A08Server = exports.A08Server || (exports.A08Server = {}));
+})(A09Server = exports.A09Server || (exports.A09Server = {}));
 //# sourceMappingURL=server.js.map
