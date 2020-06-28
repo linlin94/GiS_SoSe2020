@@ -36,7 +36,6 @@ namespace Abgabe09 {
     url = url + "?" + query.toString();
     let response: Response = await fetch(url);
     let responseTEXT: string = await response.json();
-    //let responseJSON: JSON = JSON.parse(responseTEXT);
 
     console.log(responseTEXT);
        
