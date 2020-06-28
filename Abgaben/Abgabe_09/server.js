@@ -46,12 +46,12 @@ var A08Server;
             //wenn /html (in url) empfangen wird, werden Schüssel-Werte-Paare in Antwort geschrieben und in Konsole ausgegeben
             else if (pathname == "/html") {
                 for (let key in url.query) {
-                    _response.write(key + ":" + url.query[key] + "<br/>");
+                    _response.write(key + ":" + url.query[key] + "<br>");
                     console.log(_response);
                 }
             }
         }
-        //Ende & Verschicken der Antowort:
+        //Ende & Verschicken der Antwort:
         _response.end();
     }
 })(A08Server = exports.A08Server || (exports.A08Server = {}));

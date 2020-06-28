@@ -7,7 +7,7 @@ namespace Abgabe08 {
   let buttonClickJSON: HTMLElement = <HTMLElement> document.getElementById("jsonbutton");
   buttonClickJSON.addEventListener("click", handleClickJSON);
 
-
+  let pResponse: HTMLElement = document.getElementById("pResponse")!;
     
   async function handleClickHTML(): Promise<void> {
 
@@ -20,8 +20,7 @@ namespace Abgabe08 {
     let response: Response = await fetch(url);
     let responseText: string = await response.text();
 
-    //generiert HTML auf der form.html Seite:
-    let pResponse: HTMLElement = document.getElementById("pResponse")!;
+    //füllt HTML auf der form.html Seite:
     pResponse.innerHTML = responseText;
 
   }
@@ -39,6 +38,7 @@ namespace Abgabe08 {
     let responseJSON: JSON = JSON.parse(responseText);
     console.log(responseJSON);
     console.log(responseText);
+    pResponse.innerHTML = responseText;
        
     }
 

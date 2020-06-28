@@ -6,6 +6,7 @@ var Abgabe08;
     buttonClickHTML.addEventListener("click", handleClickHTML);
     let buttonClickJSON = document.getElementById("jsonbutton");
     buttonClickJSON.addEventListener("click", handleClickJSON);
+    let pResponse = document.getElementById("pResponse");
     async function handleClickHTML() {
         //generiert FormData Objekt aus <form> im Dokument:
         let formData = new FormData(document.forms[0]);
@@ -15,8 +16,7 @@ var Abgabe08;
         url = url + "?" + query.toString();
         let response = await fetch(url);
         let responseText = await response.text();
-        //generiert HTML auf der form.html Seite:
-        let pResponse = document.getElementById("pResponse");
+        //füllt HTML auf der form.html Seite:
         pResponse.innerHTML = responseText;
     }
     async function handleClickJSON() {
@@ -31,6 +31,7 @@ var Abgabe08;
         let responseJSON = JSON.parse(responseText);
         console.log(responseJSON);
         console.log(responseText);
+        pResponse.innerHTML = responseText;
     }
 })(Abgabe08 || (Abgabe08 = {}));
 //# sourceMappingURL=start.js.map
