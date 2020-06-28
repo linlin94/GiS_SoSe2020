@@ -32,13 +32,13 @@ namespace Abgabe09 {
     let formData: FormData = new FormData(document.forms[0]);
     let url: string = "https://ultimategis2020.herokuapp.com";
     url = url + "/json";
-    let query: URLSearchParams = new URLSearchParams(formData.toString());
+    let query: URLSearchParams = new URLSearchParams(<any>formData);
     url = url + "?" + query.toString();
     let response: Response = await fetch(url);
-    let responseTEXT: string = response.toString();
+    let responseTEXT: string = await response.json();
     let responseJSON: JSON = JSON.parse(responseTEXT);
+
     console.log(responseJSON);
-    pResponse.innerHTML = responseTEXT;
        
     }
   }
