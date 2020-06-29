@@ -32,8 +32,6 @@ export namespace A09Server {
     //wird ausgeführt wenn etwas angefragt wird:
     //Parameter werden mitgegeben:http-Protokolle (für Anfrage und Anwort), kein Rückgabewert:
     function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerResponse): void {
-        
-        console.log("I hear voices!");
 
         //setzt den Header des http.ServerAntwort auf: (HTML mit Zeichecode UTF-8):
         _response.setHeader("content-type", "text/html; charset=utf-8");

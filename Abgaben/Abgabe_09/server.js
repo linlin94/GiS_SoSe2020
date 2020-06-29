@@ -28,7 +28,6 @@ var A09Server;
     //wird ausgeführt wenn etwas angefragt wird:
     //Parameter werden mitgegeben:http-Protokolle (für Anfrage und Anwort), kein Rückgabewert:
     function handleRequest(_request, _response) {
-        console.log("I hear voices!");
         //setzt den Header des http.ServerAntwort auf: (HTML mit Zeichecode UTF-8):
         _response.setHeader("content-type", "text/html; charset=utf-8");
         //erlaubt dem Browser Code anzufragen jeglichen Ursprungs um die Resource zu erreichen:

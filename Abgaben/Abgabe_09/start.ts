@@ -38,6 +38,7 @@ namespace Abgabe09 {
     let responseTEXT: string = await response.json();
 
     console.log(responseTEXT);
+    pResponse.innerHTML = JSON.stringify(responseTEXT);
        
     }
   }

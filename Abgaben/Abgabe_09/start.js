@@ -25,13 +25,12 @@ var Abgabe09;
         let formData = new FormData(document.forms[0]);
         let url = "https://ultimategis2020.herokuapp.com";
         url = url + "/json";
-        let query = new URLSearchParams(formData.toString());
+        let query = new URLSearchParams(formData);
         url = url + "?" + query.toString();
         let response = await fetch(url);
-        let responseTEXT = response.toString();
-        let responseJSON = JSON.parse(responseTEXT);
-        console.log(responseJSON);
-        pResponse.innerHTML = responseTEXT;
+        let responseTEXT = await response.json();
+        console.log(responseTEXT);
+        pResponse.innerHTML = JSON.stringify(responseTEXT);
     }
 })(Abgabe09 || (Abgabe09 = {}));
 //# sourceMappingURL=start.js.map
