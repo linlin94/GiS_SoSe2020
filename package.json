@@ -3,10 +3,13 @@
   "version": "1.0.0",
   "description": "Grundlagen interaktiver Systeme - SoSe2020 - OMB 2",
   "main": "index.js",
-  "dependencies": {},
+  "dependencies": {
+    "@types/mongodb": "^3.5.25",
+    "mongodb": "^3.5.9"
+  },
   "devDependencies": {},
   "scripts": {
-    "start": "node Abgaben/Abgabe_09/server.js"
+    "start": "node Abgaben/Abgabe_11/server.js remote"
   },
   "repository": {
     "type": "git",
