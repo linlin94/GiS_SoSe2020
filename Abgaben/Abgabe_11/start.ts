@@ -6,7 +6,7 @@ namespace A11 {
   datenAnlegen.addEventListener("click", handleDatenAnlegen);
   let datenAnfragen: HTMLButtonElement = <HTMLButtonElement>document.getElementById("datenAnfragen");
   datenAnfragen.addEventListener("click", handleDatenAnfragen);
-  let ausgabeForm: HTMLDivElement = <HTMLDivElement>document.getElementById("pResponse");
+  let ausgabeForm: HTMLElement = <HTMLElement>document.getElementById("pResponse");
 
   
   async function handleDatenAnlegen(): Promise<void> {
