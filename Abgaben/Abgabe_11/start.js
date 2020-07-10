@@ -22,6 +22,7 @@ var A11;
         let serverResponse = await fetch(url);
         let stringResponse = await serverResponse.text();
         ausgabeForm.innerHTML = stringResponse;
+        console.log("Daten wurden abgefragt");
     }
 })(A11 || (A11 = {}));
 //# sourceMappingURL=start.js.map

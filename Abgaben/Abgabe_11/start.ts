@@ -26,5 +26,6 @@ namespace A11 {
       let serverResponse: Response = await fetch(url);
       let stringResponse: string = await serverResponse.text();
       ausgabeForm.innerHTML = stringResponse;
+      console.log("Daten wurden abgefragt");
   }
 }
