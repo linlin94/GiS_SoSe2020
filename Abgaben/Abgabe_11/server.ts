@@ -42,7 +42,7 @@ export namespace A11 {
         if (_request.url) {
             let url: Url.UrlWithParsedQuery = Url.parse(_request.url, true);
             
-            if (url.pathname == "/push") {
+            if (url.pathname == "/insert") {
                 mongoCollection.insert(url.query);
             }
             else if (url.pathname == "/pull") {

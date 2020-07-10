@@ -12,13 +12,16 @@ var A11;
         let form = new FormData(document.forms[0]);
         let query = new URLSearchParams(form);
         let url = "https://ultimategis2020.herokuapp.com";
-        url += "/push?" + query.toString();
+        url = url + "/insert?" + query.toString();
         //response fetchen
         await fetch(url);
         console.log("Daten wurden angelegt");
     }
     async function handleDatenAnfragen() {
         let url = "https://ultimategis2020.herokuapp.com";
+        let form = new FormData(document.forms[0]);
+        let query = new URLSearchParams(form);
+        url = url + "/get?" + query.toString();
         let serverResponse = await fetch(url);
         let stringResponse = await serverResponse.text();
         ausgabeForm.innerHTML = stringResponse;

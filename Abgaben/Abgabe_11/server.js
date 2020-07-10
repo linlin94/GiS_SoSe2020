@@ -37,7 +37,7 @@ var A11;
         _response.setHeader("Access-Control-Allow-Origin", "*");
         if (_request.url) {
             let url = Url.parse(_request.url, true);
-            if (url.pathname == "/push") {
+            if (url.pathname == "/insert") {
                 mongoCollection.insert(url.query);
             }
             else if (url.pathname == "/pull") {
