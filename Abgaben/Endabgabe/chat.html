@@ -3,9 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="chat.js" defer></script>
     <title>Chats - simpleChat</title>
 </head>
 <body>
-    
+    <header>
+        <div id="headercontainer">
+        	<div id="logochat">
+                <img src="Logoweiss.svg" alt="logochatweiss">
+            </div>
+            <div id="usernameTitle">
+                
+            </div>
+            <div id="logouticon">
+                <p>Logout</p>
+            </div>
+        </div>
+
+    </header>
+
+        <nav class="chatroomContainer">
+            <div class="chatroom">
+                <p id="cr1">Chatroom 1</p>
+            </div>
+            <div class="chatroom">
+                <p id="cr2">Chatroom 2</p>
+            </div>
+        </nav>
+
+    <main>
+        <div class="chatcontainer">
+
+            <div id="chatbox">
+                <div id="chatroom">
+                    <!--Beispielnachricht wird dann so generiert:
+                    <div class="chatmessage">
+                        <h5>Mausi8</h5>
+                        <p>Hi wie gehts so?</p>
+                    </div>
+
+                    <div class="mymessage">
+                        <h5>Lindi94</h5>
+                        <p>Mir gehts super und dir?</p>
+                    </div> -->
+                </div>
+            </div>
+
+            <div id="sendTools">
+                <form id="formMessage" name="formMessage">
+                    <input type="text" id="message" name="message">
+                    <button type="button" id="sendMessage">Send</button>
+                </form>
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer id="footerChat">
+        <div>
+            <p>Impressum C by Linda Koziol</p>
+        </div>
+
+    </footer>
 </body>
 </html>
