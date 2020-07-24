@@ -39,11 +39,11 @@ var endabgabeServer;
         console.log(allUsersJSON);
         let allUsersFunc = JSON.parse(allUsersJSON);
         let allMessagesMongo = messageCollection.find();
-        let allMessagesJSON = JSON.stringify(allMessagesMongo);
+        let allMessagesJSON = await allMessagesMongo.toArray();
         console.log(allMessagesJSON);
-        let allMessagesFunc = JSON.parse(allMessagesJSON);
+        //let allMessagesFunc: Message[] = JSON.parse(allMessagesJSON); 
         allUsers = allUsersFunc;
-        allMessages = allMessagesFunc;
+        //allMessages = allMessagesFunc;
         console.log("IHRE MONGO DATEN SIND ANGERICHTET!");
     }
     //handelt die Anfrage je nach Pathname:

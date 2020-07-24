@@ -59,12 +59,12 @@ export namespace endabgabeServer {
         let allUsersFunc: User[] = JSON.parse(allUsersJSON);
 
         let allMessagesMongo: Mongo.Cursor<string> = messageCollection.find();
-        let allMessagesJSON: string = JSON.stringify(allMessagesMongo);
+        let allMessagesJSON: string[] = await allMessagesMongo.toArray();
         console.log(allMessagesJSON);
-        let allMessagesFunc: Message[] = JSON.parse(allMessagesJSON); 
+        //let allMessagesFunc: Message[] = JSON.parse(allMessagesJSON); 
 
         allUsers = allUsersFunc;
-        allMessages = allMessagesFunc;
+        //allMessages = allMessagesFunc;
         console.log("IHRE MONGO DATEN SIND ANGERICHTET!");
     }
 
