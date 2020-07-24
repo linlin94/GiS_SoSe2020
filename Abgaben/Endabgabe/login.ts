@@ -17,14 +17,13 @@ namespace endabgabe {
         url = url + "/login?" + query.toString();
          //response fetchen
         let responseLogin: Response = await fetch(url);
-        let responseLoginText: string = responseLogin.toString();
-        let responseLoginSuccess: JSON = await responseLogin.json();
-        console.log(responseLogin);
+        let responseLoginText: string = await responseLogin.text();
+        console.log(responseLoginText);
         if (responseLoginText == "failure") {
             window.alert("Anmeldung fehlgeschlagen.");
         }
         else {
-            localStorage.setItem("currentUser", JSON.stringify(responseLoginSuccess));
+            localStorage.setItem("currentUser", responseLoginText);
             window.alert("Du hast dich erfolgreich eingeloggt.");
             window.location.href = "chat.html";
         }

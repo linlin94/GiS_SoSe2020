@@ -1,44 +1,27 @@
 "use strict";
 var endabgabe;
 (function (endabgabe) {
-    /*
-
-    let user01: User = {username: "Lindi94", password: "lindi94"};
-    let user02: User = {username: "Mausi8", password: "mausi8"};
-
-    export let allUsers: User[] = [user01, user02];
-
-    let testmessage01: Message = {username: user01.username, text: "Hi du wie gehts so?", chatroom: 1};
-
-    let testmessage02: Message = {username: user02.username, text: "Mir gehts super. Und dir so?", chatroom: 1};
-
-    let testmessage03: Message = {username: user02.username, text: "Ist das Chatroom Nr2 ?", chatroom: 2};
-
-    let testmessage04: Message  = {username: user01.username, text: "Ja, Willkommen!", chatroom: 2};
-    */
     //array mit allen Nachrichten:
     let allMessages;
     //eingeloggter User:
-    let currentUserLoggedIn = JSON.parse(localStorage.getItem("currentUser"));
-    //der eingeloggte Username erscheint oben mittig im Header:
-    let usernameTitle = document.getElementById("usernameTitle");
-    let usernameTitleh1 = document.createElement("h1");
-    usernameTitleh1.innerHTML = currentUserLoggedIn.username;
-    usernameTitle.appendChild(usernameTitleh1);
-    /*//Chatmessages dynamisch generieren:
-    async function getAllMessages(): Promise<void> {
-        let url: string = "https://ultimategis2020.herokuapp.com";
-        url = url + "/getAllMessages?";
-        let responseMessages: Response = await fetch (url);
-        let responseMessagesJSON: string = responseMessages.toString();
-        allMessages = JSON.parse(responseMessagesJSON);
-    } */
+    let currentUserLoggedIn;
+    buildPage();
+    function buildPage() {
+        //definiert den eingeloggten User:
+        currentUserLoggedIn = JSON.parse(localStorage.getItem("currentUser"));
+        console.log(currentUserLoggedIn);
+        //der eingeloggte Username erscheint oben mittig im Header, erstellt CSS:
+        let usernameTitle = document.getElementById("usernameTitle");
+        let usernameTitleh1 = document.createElement("h1");
+        usernameTitleh1.innerHTML = currentUserLoggedIn.username;
+        usernameTitle.appendChild(usernameTitleh1);
+    }
     async function generateChatmessage(_chatroom) {
+        currentUserLoggedIn = await JSON.parse(localStorage.getItem("currentUser"));
         let url = "https://ultimategis2020.herokuapp.com";
         url = url + "/getAllMessages?";
         let responseMessages = await fetch(url);
         let responseMessagesJSON = await responseMessages.text();
-        console.log(responseMessagesJSON);
         allMessages = JSON.parse(responseMessagesJSON);
         let chatbox = document.getElementById("chatbox");
         let chat1 = document.getElementById("chatroom");
@@ -89,7 +72,7 @@ var endabgabe;
             let query = new URLSearchParams(formDataMessage);
             let queryChatroom = new URLSearchParams(chatroomOBJ);
             let url = "https://ultimategis2020.herokuapp.com";
-            url = url + "/sendMessage?" + query.toString() + queryChatroom.toString();
+            url = url + "/sendMessage?" + query.toString() + "&" + queryChatroom.toString();
             await fetch(url);
             generateChatmessage(currentChatroom);
         }

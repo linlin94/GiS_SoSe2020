@@ -9,57 +9,35 @@ namespace endabgabe {
         username: string;
         text: string;
         chatroom: number;
-        //date: date;
-        //time: time;
     }
-
-    /*
-
-    let user01: User = {username: "Lindi94", password: "lindi94"};
-    let user02: User = {username: "Mausi8", password: "mausi8"};
-
-    export let allUsers: User[] = [user01, user02];
-
-    let testmessage01: Message = {username: user01.username, text: "Hi du wie gehts so?", chatroom: 1};
-
-    let testmessage02: Message = {username: user02.username, text: "Mir gehts super. Und dir so?", chatroom: 1};
-
-    let testmessage03: Message = {username: user02.username, text: "Ist das Chatroom Nr2 ?", chatroom: 2};
-
-    let testmessage04: Message  = {username: user01.username, text: "Ja, Willkommen!", chatroom: 2};
-    */
 
     //array mit allen Nachrichten:
     let allMessages: Message[];
     
 
     //eingeloggter User:
-    let currentUserLoggedIn: User = JSON.parse(localStorage.getItem("currentUser")!);
+    let currentUserLoggedIn: User;
 
-    //der eingeloggte Username erscheint oben mittig im Header:
-    let usernameTitle: HTMLElement = document.getElementById("usernameTitle")!;
-    let usernameTitleh1: HTMLElement = document.createElement("h1");
-    usernameTitleh1.innerHTML = currentUserLoggedIn.username;
-    usernameTitle.appendChild(usernameTitleh1);
+    buildPage();
 
-    
-    
-    /*//Chatmessages dynamisch generieren:
-    async function getAllMessages(): Promise<void> {
-        let url: string = "https://ultimategis2020.herokuapp.com";
-        url = url + "/getAllMessages?";
-        let responseMessages: Response = await fetch (url);
-        let responseMessagesJSON: string = responseMessages.toString();
-        allMessages = JSON.parse(responseMessagesJSON);
-    } */
+    function buildPage(): void {
+        //definiert den eingeloggten User:
+        currentUserLoggedIn = JSON.parse(localStorage.getItem("currentUser")!);
+        console.log(currentUserLoggedIn);
+        //der eingeloggte Username erscheint oben mittig im Header, erstellt CSS:
+        let usernameTitle: HTMLElement = document.getElementById("usernameTitle")!;
+        let usernameTitleh1: HTMLElement = document.createElement("h1");
+        usernameTitleh1.innerHTML = currentUserLoggedIn.username;
+        usernameTitle.appendChild(usernameTitleh1);
+    }
 
     async function generateChatmessage(_chatroom: number): Promise<void> {
 
+        currentUserLoggedIn = await JSON.parse(localStorage.getItem("currentUser")!);
         let url: string = "https://ultimategis2020.herokuapp.com";
         url = url + "/getAllMessages?";
         let responseMessages: Response = await fetch (url);
         let responseMessagesJSON: string = await responseMessages.text();
-        console.log(responseMessagesJSON);
         allMessages = JSON.parse(responseMessagesJSON);
 
         let chatbox: HTMLElement = document.getElementById("chatbox")!;
@@ -69,6 +47,7 @@ namespace endabgabe {
         chat1.innerHTML = "";
 
         chatbox.appendChild(chat1);
+
 
         for (let index: number = 0; index < allMessages.length; index++) {
 
@@ -130,7 +109,7 @@ namespace endabgabe {
         let query: URLSearchParams = new URLSearchParams(<any>formDataMessage);
         let queryChatroom: URLSearchParams = new URLSearchParams(<any>chatroomOBJ);
         let url: string = "https://ultimategis2020.herokuapp.com";
-        url = url + "/sendMessage?" + query.toString() + queryChatroom.toString();
+        url = url + "/sendMessage?" + query.toString() + "&" + queryChatroom.toString();
         await fetch(url);
 
         generateChatmessage(currentChatroom);
