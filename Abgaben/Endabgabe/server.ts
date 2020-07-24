@@ -59,12 +59,12 @@ export namespace endabgabeServer {
     async function getVars(): Promise<void> {
     let allUsersJSON: string = JSON.stringify(userCollection.find());
     let allUsersFunc: User[] = JSON.parse(allUsersJSON);
-
-    let allMessagesJSON: string = JSON.stringify(messageCollection);
+    let allMessagesJSON: string = JSON.stringify(messageCollection.find());
     let allMessagesFunc: Message[] = JSON.parse(allMessagesJSON); 
 
     allUsers = allUsersFunc;
     allMessages = allMessagesFunc;
+    console.log("GETVARS IST FERTIG!");
     }
 
     //handelt die Anfrage je nach Pathname:

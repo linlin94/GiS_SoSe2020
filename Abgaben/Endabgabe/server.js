@@ -40,10 +40,11 @@ var endabgabeServer;
     async function getVars() {
         let allUsersJSON = JSON.stringify(userCollection.find());
         let allUsersFunc = JSON.parse(allUsersJSON);
-        let allMessagesJSON = JSON.stringify(messageCollection);
+        let allMessagesJSON = JSON.stringify(messageCollection.find());
         let allMessagesFunc = JSON.parse(allMessagesJSON);
         allUsers = allUsersFunc;
         allMessages = allMessagesFunc;
+        console.log("GETVARS IST FERTIG!");
     }
     //handelt die Anfrage je nach Pathname:
     async function handleRequest(_request, _response) {
