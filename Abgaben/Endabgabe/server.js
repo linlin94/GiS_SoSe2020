@@ -37,16 +37,14 @@ var endabgabeServer;
         let allUsersMongo = userCollection.find();
         //let allUsersJSON: string = JSON.stringify(allUsersMongo);
         let allUsersString = allUsersMongo.toString();
-        let allUsersJSON = JSON.parse(allUsersString);
-        console.log(allUsersJSON);
-        //let allUsersFunc: User[] = JSON.parse(allUsersJSON);
+        console.log(allUsersString);
+        let allUsersFunc = JSON.parse(allUsersString);
         let allMessagesMongo = messageCollection.find();
         let allMessagesString = allMessagesMongo.toString();
-        let allMessagesJSON = JSON.parse(allMessagesString);
-        console.log(allMessagesJSON);
-        //let allMessagesFunc: Message[] = JSON.parse(allMessagesJSON); 
-        //allUsers = allUsersFunc;
-        //allMessages = allMessagesFunc;
+        console.log(allMessagesString);
+        let allMessagesFunc = JSON.parse(allMessagesString);
+        allUsers = allUsersFunc;
+        allMessages = allMessagesFunc;
         console.log("IHRE MONGO DATEN SIND ANGERICHTET!");
     }
     //handelt die Anfrage je nach Pathname:
