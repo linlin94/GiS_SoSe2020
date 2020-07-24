@@ -55,9 +55,12 @@ export namespace endabgabeServer {
 
         let allUsersMongo: Mongo.Cursor<string> = userCollection.find();
         let allUsersJSON: string = JSON.stringify(allUsersMongo);
+        console.log(allUsersJSON);
         let allUsersFunc: User[] = JSON.parse(allUsersJSON);
+
         let allMessagesMongo: Mongo.Cursor<string> = messageCollection.find();
         let allMessagesJSON: string = JSON.stringify(allMessagesMongo);
+        console.log(allMessagesJSON);
         let allMessagesFunc: Message[] = JSON.parse(allMessagesJSON); 
 
         allUsers = allUsersFunc;
