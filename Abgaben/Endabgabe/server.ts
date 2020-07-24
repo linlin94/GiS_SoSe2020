@@ -54,16 +54,17 @@ export namespace endabgabeServer {
         messageCollection = mongoClient.db("simplechat").collection("Messages");
 
         let allUsersMongo: Mongo.Cursor<string> = userCollection.find();
-        let allUsersJSON: string = JSON.stringify(allUsersMongo);
+        //let allUsersJSON: string = JSON.stringify(allUsersMongo);
+        let allUsersJSON: string[] = await allUsersMongo.toArray();
         console.log(allUsersJSON);
-        let allUsersFunc: User[] = JSON.parse(allUsersJSON);
+        //let allUsersFunc: User[] = JSON.parse(allUsersJSON);
 
         let allMessagesMongo: Mongo.Cursor<string> = messageCollection.find();
         let allMessagesJSON: string[] = await allMessagesMongo.toArray();
         console.log(allMessagesJSON);
         //let allMessagesFunc: Message[] = JSON.parse(allMessagesJSON); 
 
-        allUsers = allUsersFunc;
+        //allUsers = allUsersFunc;
         //allMessages = allMessagesFunc;
         console.log("IHRE MONGO DATEN SIND ANGERICHTET!");
     }

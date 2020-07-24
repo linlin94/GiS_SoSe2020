@@ -35,14 +35,15 @@ var endabgabeServer;
         userCollection = mongoClient.db("simplechat").collection("User");
         messageCollection = mongoClient.db("simplechat").collection("Messages");
         let allUsersMongo = userCollection.find();
-        let allUsersJSON = JSON.stringify(allUsersMongo);
+        //let allUsersJSON: string = JSON.stringify(allUsersMongo);
+        let allUsersJSON = await allUsersMongo.toArray();
         console.log(allUsersJSON);
-        let allUsersFunc = JSON.parse(allUsersJSON);
+        //let allUsersFunc: User[] = JSON.parse(allUsersJSON);
         let allMessagesMongo = messageCollection.find();
         let allMessagesJSON = await allMessagesMongo.toArray();
         console.log(allMessagesJSON);
         //let allMessagesFunc: Message[] = JSON.parse(allMessagesJSON); 
-        allUsers = allUsersFunc;
+        //allUsers = allUsersFunc;
         //allMessages = allMessagesFunc;
         console.log("IHRE MONGO DATEN SIND ANGERICHTET!");
     }
