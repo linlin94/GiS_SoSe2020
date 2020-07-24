@@ -5,11 +5,13 @@ import * as Mongo from "mongodb";
 export namespace endabgabeServer {
 
     interface User {
+        _id: string;
         username: string;
         password: string;
     }
 
     interface Message {
+        _id: string;
         username: string;
         text: string;
         chatroom: number;
@@ -93,7 +95,7 @@ export namespace endabgabeServer {
                             usernameConfirmed = true;
                             if (allUsers[i].password == passwordLogin) {
                                 passwordConfirmed = true;
-                                currentUser = {username: usernameLogin, password: passwordLogin};
+                                currentUser = {_id: "0", username: usernameLogin, password: passwordLogin};
                             }
                         }
                     }
@@ -113,7 +115,7 @@ export namespace endabgabeServer {
                     let usernameRegistration: string = <string>url.query["username"];
                     let passwordRegistration: string = <string>url.query["password"];
             
-                    let newUser: User = {username: usernameRegistration, password: passwordRegistration};
+                    let newUser: User = {_id: "", username: usernameRegistration, password: passwordRegistration};
             
                     let userTaken: boolean = false;
             
@@ -144,6 +146,7 @@ export namespace endabgabeServer {
 
                     delete currentUser.username;
                     delete currentUser.password;
+                    delete currentUser._id;
             }
 
 

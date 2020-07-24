@@ -65,7 +65,7 @@ var endabgabeServer;
                             usernameConfirmed = true;
                             if (allUsers[i].password == passwordLogin) {
                                 passwordConfirmed = true;
-                                currentUser = { username: usernameLogin, password: passwordLogin };
+                                currentUser = { _id: "0", username: usernameLogin, password: passwordLogin };
                             }
                         }
                     }
@@ -80,7 +80,7 @@ var endabgabeServer;
                 case "/registration":
                     let usernameRegistration = url.query["username"];
                     let passwordRegistration = url.query["password"];
-                    let newUser = { username: usernameRegistration, password: passwordRegistration };
+                    let newUser = { _id: "", username: usernameRegistration, password: passwordRegistration };
                     let userTaken = false;
                     //testet, ob es den Usernamen schon im Array (Datenbank) gibt:
                     for (let i = 0; i < allUsers.length; i++) {
@@ -102,6 +102,7 @@ var endabgabeServer;
                 case "/logout":
                     delete currentUser.username;
                     delete currentUser.password;
+                    delete currentUser._id;
             }
             /*if (url.pathname == "/insert") {
                 mongoCollection.insert(url.query);
