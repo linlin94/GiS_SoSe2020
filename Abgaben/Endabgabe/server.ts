@@ -5,13 +5,11 @@ import * as Mongo from "mongodb";
 export namespace endabgabeServer {
 
     interface User {
-        _id: string;
         username: string;
         password: string;
     }
 
     interface Message {
-        _id: string;
         username: string;
         text: string;
         chatroom: number;
@@ -59,15 +57,17 @@ export namespace endabgabeServer {
         //let allUsersJSON: string = JSON.stringify(allUsersMongo);
         let allUsersString: string = allUsersMongo.toString();
         console.log(allUsersString);
-        let allUsersFunc: User[] = JSON.parse(allUsersString);
+        console.log(Object.entries(allUsersString));
+        //let allUsersFunc: User[] = allUsersString;
 
         let allMessagesMongo: Mongo.Cursor<string> = messageCollection.find();
         let allMessagesString: string = allMessagesMongo.toString();
         console.log(allMessagesString);
-        let allMessagesFunc: Message[] = JSON.parse(allMessagesString); 
+        console.log(Object.entries(allMessagesString));
+        //let allMessagesFunc: Message[] = JSON.parse(allMessagesString); 
 
-        allUsers = allUsersFunc;
-        allMessages = allMessagesFunc;
+        //allUsers = allUsersFunc;
+        //allMessages = allMessagesFunc;
         console.log("IHRE MONGO DATEN SIND ANGERICHTET!");
     }
 
@@ -95,7 +95,7 @@ export namespace endabgabeServer {
                             usernameConfirmed = true;
                             if (allUsers[i].password == passwordLogin) {
                                 passwordConfirmed = true;
-                                currentUser = {_id: "0", username: usernameLogin, password: passwordLogin};
+                                currentUser = {username: usernameLogin, password: passwordLogin};
                             }
                         }
                     }
@@ -115,7 +115,7 @@ export namespace endabgabeServer {
                     let usernameRegistration: string = <string>url.query["username"];
                     let passwordRegistration: string = <string>url.query["password"];
             
-                    let newUser: User = {_id: "", username: usernameRegistration, password: passwordRegistration};
+                    let newUser: User = {username: usernameRegistration, password: passwordRegistration};
             
                     let userTaken: boolean = false;
             
@@ -146,7 +146,6 @@ export namespace endabgabeServer {
 
                     delete currentUser.username;
                     delete currentUser.password;
-                    delete currentUser._id;
             }
 
 

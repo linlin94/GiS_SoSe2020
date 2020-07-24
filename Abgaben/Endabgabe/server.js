@@ -38,13 +38,15 @@ var endabgabeServer;
         //let allUsersJSON: string = JSON.stringify(allUsersMongo);
         let allUsersString = allUsersMongo.toString();
         console.log(allUsersString);
-        let allUsersFunc = JSON.parse(allUsersString);
+        console.log(Object.entries(allUsersString));
+        //let allUsersFunc: User[] = allUsersString;
         let allMessagesMongo = messageCollection.find();
         let allMessagesString = allMessagesMongo.toString();
         console.log(allMessagesString);
-        let allMessagesFunc = JSON.parse(allMessagesString);
-        allUsers = allUsersFunc;
-        allMessages = allMessagesFunc;
+        console.log(Object.entries(allMessagesString));
+        //let allMessagesFunc: Message[] = JSON.parse(allMessagesString); 
+        //allUsers = allUsersFunc;
+        //allMessages = allMessagesFunc;
         console.log("IHRE MONGO DATEN SIND ANGERICHTET!");
     }
     //handelt die Anfrage je nach Pathname:
@@ -65,7 +67,7 @@ var endabgabeServer;
                             usernameConfirmed = true;
                             if (allUsers[i].password == passwordLogin) {
                                 passwordConfirmed = true;
-                                currentUser = { _id: "0", username: usernameLogin, password: passwordLogin };
+                                currentUser = { username: usernameLogin, password: passwordLogin };
                             }
                         }
                     }
@@ -80,7 +82,7 @@ var endabgabeServer;
                 case "/registration":
                     let usernameRegistration = url.query["username"];
                     let passwordRegistration = url.query["password"];
-                    let newUser = { _id: "", username: usernameRegistration, password: passwordRegistration };
+                    let newUser = { username: usernameRegistration, password: passwordRegistration };
                     let userTaken = false;
                     //testet, ob es den Usernamen schon im Array (Datenbank) gibt:
                     for (let i = 0; i < allUsers.length; i++) {
@@ -102,7 +104,6 @@ var endabgabeServer;
                 case "/logout":
                     delete currentUser.username;
                     delete currentUser.password;
-                    delete currentUser._id;
             }
             /*if (url.pathname == "/insert") {
                 mongoCollection.insert(url.query);
