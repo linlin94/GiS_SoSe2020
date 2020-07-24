@@ -88,6 +88,7 @@ var endabgabeServer;
                     }
                     break;
                 case "/getAllMessages":
+                    connectDatabase();
                     _response.write(JSON.stringify(allMessages));
                     break;
                 case "/sendMessage":
