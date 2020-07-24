@@ -7,7 +7,7 @@ const Mongo = require("mongodb");
 var endabgabeServer;
 (function (endabgabeServer) {
     //let _url: string = "mongodb://localhost:27017";
-    let _url = "mongodb+srv://linlin94:<password>@ultimategis2020-21b69.mongodb.net/simplechat?retryWrites=true&w=majority";
+    let _url = "mongodb+srv://linlin94:gis2020@ultimategis2020-21b69.mongodb.net/simplechat?retryWrites=true&w=majority";
     let userCollection;
     let messageCollection;
     let port = Number(process.env.PORT);
