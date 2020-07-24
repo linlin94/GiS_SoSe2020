@@ -52,19 +52,17 @@ export namespace endabgabeServer {
         await mongoClient.connect();
         userCollection = mongoClient.db("simplechat").collection("User");
         messageCollection = mongoClient.db("simplechat").collection("Messages");
-        getVars();
-    }
 
-    //deklariert alle globale Variablen:
-    async function getVars(): Promise<void> {
-    let allUsersJSON: string = JSON.stringify(userCollection.find());
-    let allUsersFunc: User[] = JSON.parse(allUsersJSON);
-    let allMessagesJSON: string = JSON.stringify(messageCollection.find());
-    let allMessagesFunc: Message[] = JSON.parse(allMessagesJSON); 
+        let allUsersMongo: Mongo.Cursor<string> = userCollection.find();
+        let allUsersJSON: string = JSON.stringify(allUsersMongo);
+        let allUsersFunc: User[] = JSON.parse(allUsersJSON);
+        let allMessagesMongo: Mongo.Cursor<string> = messageCollection.find();
+        let allMessagesJSON: string = JSON.stringify(allMessagesMongo);
+        let allMessagesFunc: Message[] = JSON.parse(allMessagesJSON); 
 
-    allUsers = allUsersFunc;
-    allMessages = allMessagesFunc;
-    console.log("GETVARS IST FERTIG!");
+        allUsers = allUsersFunc;
+        allMessages = allMessagesFunc;
+        console.log("IHRE MONGO DATEN SIND ANGERICHTET!");
     }
 
     //handelt die Anfrage je nach Pathname:
