@@ -34,20 +34,7 @@ var endabgabeServer;
         await mongoClient.connect();
         userCollection = mongoClient.db("simplechat").collection("User");
         messageCollection = mongoClient.db("simplechat").collection("Messages");
-        /*let allUsersMongo: Mongo.Cursor<string> = userCollection.find();
-        //let allUsersJSON: string = JSON.stringify(allUsersMongo);
-        let allUsersString: string[] = await allUsersMongo.toArray();
-        console.log(allUsersString);
-        console.log(Object.entries(allUsersString));*/
         let allUsersFunc = await userCollection.find().toArray();
-        /*let allMessagesMongo: Mongo.Cursor<string> = messageCollection.find();
-        let allMessagesString: string [] = await allMessagesMongo.toArray();
-        console.log(allMessagesString);
-        console.log(Object.entries(allMessagesString));
-
-        for (let key of allMessagesString) {
-            allMessages.push(allMessagesString[parseInt(key)]);
-        }*/
         let allMessagesFunc = await messageCollection.find().toArray();
         allUsers = allUsersFunc;
         allMessages = allMessagesFunc;
@@ -61,7 +48,6 @@ var endabgabeServer;
             let url = Url.parse(_request.url, true);
             switch (url.pathname) {
                 case "/login":
-                    console.log("HIER BIN ICH BEI /LOGIN!");
                     let usernameLogin = url.query["username"];
                     let passwordLogin = url.query["password"];
                     let usernameConfirmed = false;
@@ -83,6 +69,7 @@ var endabgabeServer;
                     }
                     usernameConfirmed = false;
                     passwordConfirmed = false;
+                    break;
                 case "/registration":
                     let usernameRegistration = url.query["username"];
                     let passwordRegistration = url.query["password"];
@@ -99,15 +86,19 @@ var endabgabeServer;
                         _response.write("success");
                         window.alert("Die Registration war erfolgreich. Logge dich nun ein.");
                     }
+                    break;
                 case "/getAllMessages":
                     _response.write(JSON.stringify(allMessages));
+                    break;
                 case "/sendMessage":
                     let newMessageText = url.query["message"];
                     let currentChatroom = parseInt(url.query["chatroom"]);
                     messageCollection.insert({ username: currentUser.username, text: newMessageText, chatroom: currentChatroom });
+                    break;
                 case "/logout":
                     delete currentUser.username;
                     delete currentUser.password;
+                    break;
             }
             /*if (url.pathname == "/insert") {
                 mongoCollection.insert(url.query);

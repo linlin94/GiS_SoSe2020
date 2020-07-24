@@ -53,22 +53,7 @@ export namespace endabgabeServer {
         userCollection = mongoClient.db("simplechat").collection("User");
         messageCollection = mongoClient.db("simplechat").collection("Messages");
 
-        /*let allUsersMongo: Mongo.Cursor<string> = userCollection.find();
-        //let allUsersJSON: string = JSON.stringify(allUsersMongo);
-        let allUsersString: string[] = await allUsersMongo.toArray();
-        console.log(allUsersString);
-        console.log(Object.entries(allUsersString));*/
         let allUsersFunc: User[] = await userCollection.find().toArray();
-
-
-        /*let allMessagesMongo: Mongo.Cursor<string> = messageCollection.find();
-        let allMessagesString: string [] = await allMessagesMongo.toArray();
-        console.log(allMessagesString);
-        console.log(Object.entries(allMessagesString));
-
-        for (let key of allMessagesString) {
-            allMessages.push(allMessagesString[parseInt(key)]);
-        }*/
         let allMessagesFunc: Message[] = await messageCollection.find().toArray(); 
 
         allUsers = allUsersFunc;
@@ -88,7 +73,6 @@ export namespace endabgabeServer {
             switch (url.pathname) {
 
                 case "/login":
-                    console.log("HIER BIN ICH BEI /LOGIN!");
                     let usernameLogin: string = <string>url.query["username"];
                     let passwordLogin: string = <string>url.query["password"];
                     
@@ -114,7 +98,8 @@ export namespace endabgabeServer {
             
                     usernameConfirmed = false;
                     passwordConfirmed = false;
-                
+                    break;
+
                 case "/registration":
 
                     let usernameRegistration: string = <string>url.query["username"];
@@ -136,21 +121,25 @@ export namespace endabgabeServer {
                         _response.write("success");
                         window.alert("Die Registration war erfolgreich. Logge dich nun ein.");
                     }
+                    break;
 
                 case "/getAllMessages":
 
                     _response.write(JSON.stringify(allMessages));
+                    break;
 
                 case "/sendMessage":
 
                     let newMessageText: string = <string>url.query["message"];
                     let currentChatroom: number = parseInt(<string>url.query["chatroom"]);
                     messageCollection.insert({username: currentUser.username, text: newMessageText, chatroom: currentChatroom});
+                    break;
 
                 case "/logout":
 
                     delete currentUser.username;
                     delete currentUser.password;
+                    break;
             }
 
 
