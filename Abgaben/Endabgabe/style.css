@@ -152,7 +152,8 @@ nav {
 }
 
 #chatbox {
-    height: 370px;
+    height: 350px;
+    padding-top: 10px;
     overflow: scroll;
     margin: 10px;
     display: flex;

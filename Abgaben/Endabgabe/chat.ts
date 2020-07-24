@@ -111,6 +111,7 @@ namespace endabgabe {
         let url: string = "https://ultimategis2020.herokuapp.com";
         url = url + "/sendMessage?" + query.toString() + "&" + queryChatroom.toString();
         await fetch(url);
+        myFormMessage.reset();
 
         generateChatmessage(currentChatroom);
         }
