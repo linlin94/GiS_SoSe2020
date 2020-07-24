@@ -36,7 +36,7 @@ export namespace endabgabeServer {
 
     startServer(port);
     connectDatabase();
-    getVars();
+    
 
     //erstellt den Server und weißt ihm einen Port zu:
     function startServer (_port: number | string): void {
@@ -52,11 +52,12 @@ export namespace endabgabeServer {
         await mongoClient.connect();
         userCollection = mongoClient.db("simplechat").collection("User");
         messageCollection = mongoClient.db("simplechat").collection("Messages");
+        getVars();
     }
 
     //deklariert alle globale Variablen:
     async function getVars(): Promise<void> {
-    let allUsersJSON: string = JSON.stringify(userCollection.find()!);
+    let allUsersJSON: string = JSON.stringify(userCollection.find());
     let allUsersFunc: User[] = JSON.parse(allUsersJSON);
 
     let allMessagesJSON: string = JSON.stringify(messageCollection);
