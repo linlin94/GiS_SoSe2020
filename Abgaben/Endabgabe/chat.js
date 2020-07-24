@@ -25,16 +25,21 @@ var endabgabe;
     let usernameTitleh1 = document.createElement("h1");
     usernameTitleh1.innerHTML = currentUserLoggedIn.username;
     usernameTitle.appendChild(usernameTitleh1);
-    //Chatmessages dynamisch generieren:
-    async function getAllMessages() {
+    /*//Chatmessages dynamisch generieren:
+    async function getAllMessages(): Promise<void> {
+        let url: string = "https://ultimategis2020.herokuapp.com";
+        url = url + "/getAllMessages?";
+        let responseMessages: Response = await fetch (url);
+        let responseMessagesJSON: string = responseMessages.toString();
+        allMessages = JSON.parse(responseMessagesJSON);
+    } */
+    async function generateChatmessage(_chatroom) {
         let url = "https://ultimategis2020.herokuapp.com";
         url = url + "/getAllMessages?";
         let responseMessages = await fetch(url);
-        let responseMessagesJSON = responseMessages.toString();
+        let responseMessagesJSON = await responseMessages.text();
+        console.log(responseMessagesJSON);
         allMessages = JSON.parse(responseMessagesJSON);
-    }
-    function generateChatmessage(_chatroom) {
-        getAllMessages();
         let chatbox = document.getElementById("chatbox");
         let chat1 = document.getElementById("chatroom");
         // lol, dass das funktioniert xD:

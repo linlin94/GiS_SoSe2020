@@ -44,17 +44,23 @@ namespace endabgabe {
 
     
     
-    //Chatmessages dynamisch generieren:
+    /*//Chatmessages dynamisch generieren:
     async function getAllMessages(): Promise<void> {
         let url: string = "https://ultimategis2020.herokuapp.com";
         url = url + "/getAllMessages?";
         let responseMessages: Response = await fetch (url);
         let responseMessagesJSON: string = responseMessages.toString();
         allMessages = JSON.parse(responseMessagesJSON);
-    }
+    } */
 
-    function generateChatmessage(_chatroom: number): void {
-        getAllMessages();
+    async function generateChatmessage(_chatroom: number): Promise<void> {
+
+        let url: string = "https://ultimategis2020.herokuapp.com";
+        url = url + "/getAllMessages?";
+        let responseMessages: Response = await fetch (url);
+        let responseMessagesJSON: string = await responseMessages.text();
+        console.log(responseMessagesJSON);
+        allMessages = JSON.parse(responseMessagesJSON);
 
         let chatbox: HTMLElement = document.getElementById("chatbox")!;
         let chat1: HTMLElement = document.getElementById("chatroom")!;

@@ -93,7 +93,7 @@ var endabgabeServer;
                 case "/sendMessage":
                     let newMessageText = url.query["message"];
                     let currentChatroom = parseInt(url.query["chatroom"]);
-                    messageCollection.insert({ username: currentUser.username, text: newMessageText, chatroom: currentChatroom });
+                    messageCollection.insertOne({ username: currentUser.username, text: newMessageText, chatroom: currentChatroom });
                     break;
                 case "/logout":
                     delete currentUser.username;
