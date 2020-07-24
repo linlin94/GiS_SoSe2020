@@ -55,12 +55,14 @@ export namespace endabgabeServer {
 
         let allUsersMongo: Mongo.Cursor<string> = userCollection.find();
         //let allUsersJSON: string = JSON.stringify(allUsersMongo);
-        let allUsersJSON: string[] = await allUsersMongo.toArray();
+        let allUsersString: string = allUsersMongo.toString();
+        let allUsersJSON: JSON = JSON.parse(allUsersString);
         console.log(allUsersJSON);
         //let allUsersFunc: User[] = JSON.parse(allUsersJSON);
 
         let allMessagesMongo: Mongo.Cursor<string> = messageCollection.find();
-        let allMessagesJSON: string[] = await allMessagesMongo.toArray();
+        let allMessagesString: string = allMessagesMongo.toString();
+        let allMessagesJSON: JSON = JSON.parse(allMessagesString);
         console.log(allMessagesJSON);
         //let allMessagesFunc: Message[] = JSON.parse(allMessagesJSON); 
 
