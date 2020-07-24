@@ -71,14 +71,14 @@ export namespace endabgabeServer {
     
         _response.setHeader("content-type", "text/html; charset=utf-8");
         _response.setHeader("Access-Control-Allow-Origin", "*");
-     
+
         if (_request.url) {
             let url: Url.UrlWithParsedQuery = Url.parse(_request.url, true);
             
             switch (url.pathname) {
 
                 case "/login":
-
+                    console.log("HIER BIN ICH BEI /LOGIN!");
                     let usernameLogin: string = <string>url.query["username"];
                     let passwordLogin: string = <string>url.query["password"];
                     

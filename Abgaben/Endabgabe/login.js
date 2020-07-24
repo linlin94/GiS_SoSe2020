@@ -16,6 +16,7 @@ var endabgabe;
         let responseLogin = await fetch(url);
         let responseLoginText = responseLogin.toString();
         let responseLoginSuccess = await responseLogin.json();
+        console.log(responseLogin);
         if (responseLoginText == "failure") {
             window.alert("Anmeldung fehlgeschlagen.");
         }

@@ -19,7 +19,7 @@ namespace endabgabe {
         let responseLogin: Response = await fetch(url);
         let responseLoginText: string = responseLogin.toString();
         let responseLoginSuccess: JSON = await responseLogin.json();
-
+        console.log(responseLogin);
         if (responseLoginText == "failure") {
             window.alert("Anmeldung fehlgeschlagen.");
         }

@@ -53,6 +53,7 @@ var endabgabeServer;
             let url = Url.parse(_request.url, true);
             switch (url.pathname) {
                 case "/login":
+                    console.log("HIER BIN ICH BEI /LOGIN!");
                     let usernameLogin = url.query["username"];
                     let passwordLogin = url.query["password"];
                     let usernameConfirmed = false;
