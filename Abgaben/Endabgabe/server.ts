@@ -124,7 +124,6 @@ export namespace endabgabeServer {
                     break;
 
                 case "/getAllMessages":
-                    connectDatabase();
                     _response.write(JSON.stringify(allMessages));
                     break;
 
@@ -133,6 +132,7 @@ export namespace endabgabeServer {
                     let newMessageText: string = <string>url.query["message"];
                     let currentChatroom: number = parseInt(<string>url.query["chatroom"]);
                     messageCollection.insertOne({username: currentUser.username, text: newMessageText, chatroom: currentChatroom});
+                    allMessages = await messageCollection.find().toArray();
                     break;
 
                 case "/logout":

@@ -88,13 +88,13 @@ var endabgabeServer;
                     }
                     break;
                 case "/getAllMessages":
-                    connectDatabase();
                     _response.write(JSON.stringify(allMessages));
                     break;
                 case "/sendMessage":
                     let newMessageText = url.query["message"];
                     let currentChatroom = parseInt(url.query["chatroom"]);
                     messageCollection.insertOne({ username: currentUser.username, text: newMessageText, chatroom: currentChatroom });
+                    allMessages = await messageCollection.find().toArray();
                     break;
                 case "/logout":
                     delete currentUser.username;
