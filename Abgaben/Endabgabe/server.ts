@@ -53,21 +53,26 @@ export namespace endabgabeServer {
         userCollection = mongoClient.db("simplechat").collection("User");
         messageCollection = mongoClient.db("simplechat").collection("Messages");
 
-        let allUsersMongo: Mongo.Cursor<string> = userCollection.find();
+        /*let allUsersMongo: Mongo.Cursor<string> = userCollection.find();
         //let allUsersJSON: string = JSON.stringify(allUsersMongo);
         let allUsersString: string[] = await allUsersMongo.toArray();
         console.log(allUsersString);
-        console.log(Object.entries(allUsersString));
-        //let allUsersFunc: User[] = allUsersString;
+        console.log(Object.entries(allUsersString));*/
+        let allUsersFunc: User[] = await userCollection.find().toArray();
 
-        let allMessagesMongo: Mongo.Cursor<string> = messageCollection.find();
+
+        /*let allMessagesMongo: Mongo.Cursor<string> = messageCollection.find();
         let allMessagesString: string [] = await allMessagesMongo.toArray();
         console.log(allMessagesString);
         console.log(Object.entries(allMessagesString));
-        //let allMessagesFunc: Message[] = JSON.parse(allMessagesString); 
 
-        //allUsers = allUsersFunc;
-        //allMessages = allMessagesFunc;
+        for (let key of allMessagesString) {
+            allMessages.push(allMessagesString[parseInt(key)]);
+        }*/
+        let allMessagesFunc: Message[] = await messageCollection.find().toArray(); 
+
+        allUsers = allUsersFunc;
+        allMessages = allMessagesFunc;
         console.log("IHRE MONGO DATEN SIND ANGERICHTET!");
     }
 

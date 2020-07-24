@@ -34,19 +34,23 @@ var endabgabeServer;
         await mongoClient.connect();
         userCollection = mongoClient.db("simplechat").collection("User");
         messageCollection = mongoClient.db("simplechat").collection("Messages");
-        let allUsersMongo = userCollection.find();
+        /*let allUsersMongo: Mongo.Cursor<string> = userCollection.find();
         //let allUsersJSON: string = JSON.stringify(allUsersMongo);
-        let allUsersString = await allUsersMongo.toArray();
+        let allUsersString: string[] = await allUsersMongo.toArray();
         console.log(allUsersString);
-        console.log(Object.entries(allUsersString));
-        //let allUsersFunc: User[] = allUsersString;
-        let allMessagesMongo = messageCollection.find();
-        let allMessagesString = await allMessagesMongo.toArray();
+        console.log(Object.entries(allUsersString));*/
+        let allUsersFunc = await userCollection.find().toArray();
+        /*let allMessagesMongo: Mongo.Cursor<string> = messageCollection.find();
+        let allMessagesString: string [] = await allMessagesMongo.toArray();
         console.log(allMessagesString);
         console.log(Object.entries(allMessagesString));
-        //let allMessagesFunc: Message[] = JSON.parse(allMessagesString); 
-        //allUsers = allUsersFunc;
-        //allMessages = allMessagesFunc;
+
+        for (let key of allMessagesString) {
+            allMessages.push(allMessagesString[parseInt(key)]);
+        }*/
+        let allMessagesFunc = await messageCollection.find().toArray();
+        allUsers = allUsersFunc;
+        allMessages = allMessagesFunc;
         console.log("IHRE MONGO DATEN SIND ANGERICHTET!");
     }
     //handelt die Anfrage je nach Pathname:
