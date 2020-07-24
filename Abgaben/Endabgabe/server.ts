@@ -56,7 +56,7 @@ export namespace endabgabeServer {
 
     //deklariert alle globale Variablen:
     async function getVars(): Promise<void> {
-    let allUsersJSON: string = JSON.stringify(userCollection.find());
+    let allUsersJSON: string = JSON.stringify(userCollection.find()!);
     let allUsersFunc: User[] = JSON.parse(allUsersJSON);
 
     let allMessagesJSON: string = JSON.stringify(messageCollection);
