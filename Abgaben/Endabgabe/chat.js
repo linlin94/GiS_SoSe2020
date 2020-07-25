@@ -46,6 +46,7 @@ var endabgabe;
                 chat1.appendChild(chatmessage);
             }
         }
+        chat1.scrollTop = chat1.scrollHeight;
     }
     //gibt den Chatrooms die Buttonfunktionen:
     let currentChatroom = 0;
@@ -53,13 +54,19 @@ var endabgabe;
     chatroom1button.addEventListener("click", handleClickCR1);
     let chatroom2button = document.getElementById("cr2");
     chatroom2button.addEventListener("click", handleClickCR2);
+    let activeChatroomDiv = document.getElementById("activeChatroom");
+    let activeChatroom = document.createElement("p");
     function handleClickCR1() {
         generateChatmessage(1);
         currentChatroom = 1;
+        activeChatroom.innerHTML = "Chatroom " + currentChatroom.toString();
+        activeChatroomDiv.appendChild(activeChatroom);
     }
     function handleClickCR2() {
         generateChatmessage(2);
         currentChatroom = 2;
+        activeChatroom.innerHTML = "Chatroom " + currentChatroom.toString();
+        activeChatroomDiv.appendChild(activeChatroom);
     }
     //gibt dem Send-Button seine Funktion:
     let sendButton = document.getElementById("sendMessage");

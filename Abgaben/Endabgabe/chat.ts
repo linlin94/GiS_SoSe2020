@@ -72,6 +72,8 @@ namespace endabgabe {
                 chat1.appendChild(chatmessage);
             }
         }
+    
+        chat1.scrollTop = chat1.scrollHeight;
     }
 
     //gibt den Chatrooms die Buttonfunktionen:
@@ -84,14 +86,21 @@ namespace endabgabe {
     let chatroom2button: HTMLElement = document.getElementById("cr2")!;
     chatroom2button.addEventListener("click", handleClickCR2);
 
+    let activeChatroomDiv: HTMLElement = document.getElementById("activeChatroom")!;
+    let activeChatroom: HTMLElement = document.createElement("p");
+
     function handleClickCR1(): void {
         generateChatmessage(1);
         currentChatroom = 1;
+        activeChatroom.innerHTML = "Chatroom " + currentChatroom.toString();
+        activeChatroomDiv.appendChild(activeChatroom);
     }
 
     function handleClickCR2(): void {
         generateChatmessage(2);
         currentChatroom = 2;
+        activeChatroom.innerHTML = "Chatroom " + currentChatroom.toString();
+        activeChatroomDiv.appendChild(activeChatroom);
     }
 
 

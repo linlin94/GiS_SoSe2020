@@ -32,6 +32,14 @@ nav {
     margin-right: 20px;
 }
 
+#activeChatroom {
+    float: right;
+    font-size: 20px;
+    font-weight: bold;
+    color: grey;
+    margin-right: 20px;
+}
+
 .chatroomContainer {
     display: flex;
     flex-direction: row;
@@ -40,7 +48,31 @@ nav {
 #headercontainer {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
+    height: 65px;
+}
+
+#logouticon {
+    float: right;
+    margin-right: 20px;
+}
+
+#logouticon:hover {
+    cursor: pointer;
+    color: grey;
+    transition: 0.3s;
+}
+
+#usernameTitle {
+    color: rgba(255, 255, 255, 0.767);
+
+}
+
+#logochat {
+    margin: 15px;
+    width: 130px;
+    height: 55px;
+    opacity: 20%;
 }
 
 .loginfeld {
@@ -76,6 +108,7 @@ nav {
     background-color: rgb(245, 202, 84);
     color: black;
     transition: 0.2s;
+    cursor: pointer;
 }
 
 #sendTools {
@@ -113,6 +146,7 @@ nav {
     padding-right: 10px;
     padding-top: 5px;
     padding-bottom: 7px;
+    cursor: pointer;
 }
 
 .chatroom {
@@ -123,24 +157,24 @@ nav {
     border-radius: 30px;
     font-size: 14px;
 }
+
 .chatroom:hover {
     opacity: 50%;
     transition: 0.2s;
 }
 
+.chatroom p:hover {
+    cursor: pointer;
+}
+
 #logo {
-    width: 130px;
-    height: 55px;
+    display: block;
+    width: 160px;
+    height: 60px;
     padding: 14px 7px 0px 7px;
     background-color: rgb(245, 202, 84);
     border-radius: 35px;
-    margin-bottom: 15px;
-}
-
-#logochat {
-    width: 130px;
-    height: 55px;
-    opacity: 20%;
+    margin-bottom: 18px;
 }
 
 
@@ -154,13 +188,18 @@ nav {
 #chatbox {
     height: 350px;
     padding-top: 10px;
-    overflow: scroll;
     margin: 10px;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     text-align: left;
 }
+
+#chatroom {
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
 .chatmessage {
     color: white;
     background-color: rgb(48, 48, 48);
