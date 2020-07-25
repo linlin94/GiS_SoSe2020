@@ -15,7 +15,6 @@ var endabgabe;
         //response fetchen
         let responseLogin = await fetch(url);
         let responseLoginText = await responseLogin.text();
-        console.log(responseLoginText);
         if (responseLoginText == "failure") {
             window.alert("Anmeldung fehlgeschlagen.");
         }
@@ -32,7 +31,8 @@ var endabgabe;
         let url = "https://ultimategis2020.herokuapp.com";
         url = url + "/registration?" + query.toString();
         let responseRegistration = await fetch(url);
-        let responseRegistrationText = responseRegistration.toString();
+        let responseRegistrationText = await responseRegistration.text();
+        console.log(responseRegistrationText);
         if (responseRegistrationText == "success") {
             window.alert("Die Registration war erfolgreich. Logge dich nun ein.");
         }

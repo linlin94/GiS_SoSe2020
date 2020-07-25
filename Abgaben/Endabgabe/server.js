@@ -82,9 +82,8 @@ var endabgabeServer;
                         }
                     }
                     if (userTaken == false) {
-                        userCollection.insert({ username: usernameRegistration, password: passwordRegistration });
+                        userCollection.insertOne({ username: usernameRegistration, password: passwordRegistration });
                         _response.write("success");
-                        window.alert("Die Registration war erfolgreich. Logge dich nun ein.");
                     }
                     break;
                 case "/getAllMessages":
@@ -101,19 +100,6 @@ var endabgabeServer;
                     delete currentUser.password;
                     break;
             }
-            /*if (url.pathname == "/insert") {
-                mongoCollection.insert(url.query);
-            }
-            else if (url.pathname == "/pull") {
-                    let findings: Mongo.Cursor<string> = mongoCollection.find();
-                    let findingsArray: string[] = await findings.toArray();
-                    _response.write(JSON.stringify(findingsArray));
-                }
-                else {
-                    console.log("Error - Daten nicht vorhanden");
-                }
-                
-            }*/
         }
         _response.end();
     }
