@@ -53,11 +53,6 @@ export namespace endabgabeServer {
         userCollection = mongoClient.db("simplechat").collection("User");
         messageCollection = mongoClient.db("simplechat").collection("Messages");
 
-        let allUsersFunc: User[] = await userCollection.find().toArray();
-        let allMessagesFunc: Message[] = await messageCollection.find().toArray(); 
-
-        allUsers = allUsersFunc;
-        allMessages = allMessagesFunc;
         console.log("IHRE MONGO DATEN SIND ANGERICHTET!");
     }
 
@@ -73,6 +68,7 @@ export namespace endabgabeServer {
             switch (url.pathname) {
 
                 case "/login":
+                    allUsers = await userCollection.find().toArray();
                     let usernameLogin: string = <string>url.query["username"];
                     let passwordLogin: string = <string>url.query["password"];
                     
@@ -101,7 +97,7 @@ export namespace endabgabeServer {
                     break;
 
                 case "/registration":
-
+                    allUsers = await userCollection.find().toArray();
                     let usernameRegistration: string = <string>url.query["username"];
                     let passwordRegistration: string = <string>url.query["password"];
             
@@ -123,6 +119,7 @@ export namespace endabgabeServer {
                     break;
 
                 case "/getAllMessages":
+                    allMessages = await messageCollection.find().toArray();
                     _response.write(JSON.stringify(allMessages));
                     break;
 
@@ -131,7 +128,6 @@ export namespace endabgabeServer {
                     let newMessageText: string = <string>url.query["message"];
                     let currentChatroom: number = parseInt(<string>url.query["chatroom"]);
                     messageCollection.insertOne({username: currentUser.username, text: newMessageText, chatroom: currentChatroom});
-                    allMessages = await messageCollection.find().toArray();
                     break;
 
                 case "/logout":

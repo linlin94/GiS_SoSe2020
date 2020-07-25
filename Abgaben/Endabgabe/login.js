@@ -15,6 +15,7 @@ var endabgabe;
         //response fetchen
         let responseLogin = await fetch(url);
         let responseLoginText = await responseLogin.text();
+        console.log(responseLoginText);
         if (responseLoginText == "failure") {
             window.alert("Anmeldung fehlgeschlagen.");
         }
@@ -39,6 +40,7 @@ var endabgabe;
         else {
             window.alert("Dieser Username ist bereits vergeben.");
         }
+        myForm.reset();
     }
 })(endabgabe || (endabgabe = {}));
 //# sourceMappingURL=login.js.map

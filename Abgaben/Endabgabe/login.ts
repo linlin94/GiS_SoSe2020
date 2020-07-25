@@ -18,7 +18,7 @@ namespace endabgabe {
          //response fetchen
         let responseLogin: Response = await fetch(url);
         let responseLoginText: string = await responseLogin.text();
-
+        console.log(responseLoginText);
         if (responseLoginText == "failure") {
             window.alert("Anmeldung fehlgeschlagen.");
         }
@@ -46,5 +46,6 @@ namespace endabgabe {
         else {
             window.alert("Dieser Username ist bereits vergeben.");
         }
+        myForm.reset();
     }
 }

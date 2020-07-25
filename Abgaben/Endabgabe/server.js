@@ -34,10 +34,6 @@ var endabgabeServer;
         await mongoClient.connect();
         userCollection = mongoClient.db("simplechat").collection("User");
         messageCollection = mongoClient.db("simplechat").collection("Messages");
-        let allUsersFunc = await userCollection.find().toArray();
-        let allMessagesFunc = await messageCollection.find().toArray();
-        allUsers = allUsersFunc;
-        allMessages = allMessagesFunc;
         console.log("IHRE MONGO DATEN SIND ANGERICHTET!");
     }
     //handelt die Anfrage je nach Pathname:
@@ -48,6 +44,7 @@ var endabgabeServer;
             let url = Url.parse(_request.url, true);
             switch (url.pathname) {
                 case "/login":
+                    allUsers = await userCollection.find().toArray();
                     let usernameLogin = url.query["username"];
                     let passwordLogin = url.query["password"];
                     let usernameConfirmed = false;
@@ -71,6 +68,7 @@ var endabgabeServer;
                     passwordConfirmed = false;
                     break;
                 case "/registration":
+                    allUsers = await userCollection.find().toArray();
                     let usernameRegistration = url.query["username"];
                     let passwordRegistration = url.query["password"];
                     let newUser = { username: usernameRegistration, password: passwordRegistration };
@@ -87,13 +85,13 @@ var endabgabeServer;
                     }
                     break;
                 case "/getAllMessages":
+                    allMessages = await messageCollection.find().toArray();
                     _response.write(JSON.stringify(allMessages));
                     break;
                 case "/sendMessage":
                     let newMessageText = url.query["message"];
                     let currentChatroom = parseInt(url.query["chatroom"]);
                     messageCollection.insertOne({ username: currentUser.username, text: newMessageText, chatroom: currentChatroom });
-                    allMessages = await messageCollection.find().toArray();
                     break;
                 case "/logout":
                     delete currentUser.username;
