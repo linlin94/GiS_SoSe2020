@@ -73,11 +73,12 @@ var endabgabe;
     async function handleSendMessage() {
         if (currentChatroom != 0) {
             let chatroomOBJ = { chatroom: currentChatroom };
+            let userOBJ = { username: currentUserLoggedIn.username };
             let myFormMessage = document.getElementById("formMessage");
             let formDataMessage = new FormData(myFormMessage);
             let query = new URLSearchParams(formDataMessage);
             let queryChatroom = new URLSearchParams(chatroomOBJ);
-            let queryUser = new URLSearchParams(currentUserLoggedIn.username);
+            let queryUser = new URLSearchParams(userOBJ);
             let url = "https://ultimategis2020.herokuapp.com";
             url = url + "/sendMessage?" + query.toString() + "&" + queryChatroom.toString() + "&" + queryUser.toString();
             console.log(url);

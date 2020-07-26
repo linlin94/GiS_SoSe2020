@@ -112,12 +112,13 @@ namespace endabgabe {
         if (currentChatroom != 0) {
         
         let chatroomOBJ: object = {chatroom: currentChatroom};
+        let userOBJ: object = {username: currentUserLoggedIn.username};
         let myFormMessage: HTMLFormElement = <HTMLFormElement>document.getElementById("formMessage")!;
         let formDataMessage: FormData = new FormData(myFormMessage);
 
         let query: URLSearchParams = new URLSearchParams(<any>formDataMessage);
         let queryChatroom: URLSearchParams = new URLSearchParams(<any>chatroomOBJ);
-        let queryUser: URLSearchParams = new URLSearchParams(<any>currentUserLoggedIn.username);
+        let queryUser: URLSearchParams = new URLSearchParams(<any>userOBJ);
 
         let url: string = "https://ultimategis2020.herokuapp.com";
         url = url + "/sendMessage?" + query.toString() + "&" + queryChatroom.toString() + "&" + queryUser.toString();
