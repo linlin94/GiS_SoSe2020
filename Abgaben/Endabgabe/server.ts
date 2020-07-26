@@ -127,7 +127,8 @@ export namespace endabgabeServer {
 
                     let newMessageText: string = <string>url.query["message"];
                     let currentChatroom: number = parseInt(<string>url.query["chatroom"]);
-                    messageCollection.insertOne({username: currentUser.username, text: newMessageText, chatroom: currentChatroom});
+                    let userMessage: string = <string>url.query["username"];
+                    messageCollection.insertOne({username: userMessage, text: newMessageText, chatroom: currentChatroom});
                     break;
 
                 case "/logout":

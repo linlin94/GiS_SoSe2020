@@ -23,7 +23,6 @@ namespace endabgabe {
     function buildPage(): void {
         //definiert den eingeloggten User:
         currentUserLoggedIn = JSON.parse(localStorage.getItem("currentUser")!);
-        console.log(currentUserLoggedIn);
         //der eingeloggte Username erscheint oben mittig im Header, erstellt CSS:
         let usernameTitle: HTMLElement = document.getElementById("usernameTitle")!;
         let usernameTitleh1: HTMLElement = document.createElement("h1");
@@ -118,7 +117,7 @@ namespace endabgabe {
         let query: URLSearchParams = new URLSearchParams(<any>formDataMessage);
         let queryChatroom: URLSearchParams = new URLSearchParams(<any>chatroomOBJ);
         let url: string = "https://ultimategis2020.herokuapp.com";
-        url = url + "/sendMessage?" + query.toString() + "&" + queryChatroom.toString();
+        url = url + "/sendMessage?" + query.toString() + "&" + queryChatroom.toString() + "&" + currentUserLoggedIn.username.toString();
         await fetch(url);
         myFormMessage.reset();
 
