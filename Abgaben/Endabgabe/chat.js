@@ -9,7 +9,6 @@ var endabgabe;
     function buildPage() {
         //definiert den eingeloggten User:
         currentUserLoggedIn = JSON.parse(localStorage.getItem("currentUser"));
-        console.log(currentUserLoggedIn);
         //der eingeloggte Username erscheint oben mittig im Header, erstellt CSS:
         let usernameTitle = document.getElementById("usernameTitle");
         let usernameTitleh1 = document.createElement("h1");
@@ -78,8 +77,10 @@ var endabgabe;
             let formDataMessage = new FormData(myFormMessage);
             let query = new URLSearchParams(formDataMessage);
             let queryChatroom = new URLSearchParams(chatroomOBJ);
+            let userMessage = new URLSearchParams(currentUserLoggedIn.username);
             let url = "https://ultimategis2020.herokuapp.com";
-            url = url + "/sendMessage?" + query.toString() + "&" + queryChatroom.toString();
+            url = url + "/sendMessage?" + query.toString() + "&" + queryChatroom.toString() + "&" + userMessage.toString();
+            console.log(url);
             await fetch(url);
             myFormMessage.reset();
             generateChatmessage(currentChatroom);
